@@ -3,75 +3,59 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Ochrana údajov | Automatizácia | thedesigns.org</title>
-  <meta name="description" content="Ochrana osobných údajov — thedesigns.org Automatizácia">
+  <title>Ochrana údajov | Engineering Workspace</title>
   <link rel="canonical" href="https://thedesigns.org/elektro/ochrana-udajov/">
   <link rel="icon" href="/icon.svg" type="image/svg+xml">
-  <link rel="preconnect" href="https://fonts.googleapis.com">
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Barlow:wght@400;500;600;700&family=IBM+Plex+Mono:wght@500;600&display=swap" rel="stylesheet">
-  <link rel="stylesheet" href="../css/site.css">
+  <link rel="stylesheet" href="../css/workspace.css">
 </head>
-<body data-asset-root="..">
-  <div class="shell">
-    <header class="site-head">
-      <a class="brand" href="../">
-        <strong>thedesigns.org</strong>
-        <span data-i18n="brandSub">Automatizácia</span>
-      </a>
-      <p class="claim" data-i18n="claim" data-i18n-html>PLC · elektrikári · commissioning.<br>Európa vrátane Nemecka.</p>
-      <div class="lang" role="group" aria-label="Language">
-        <button type="button" data-lang="sk" aria-pressed="true">SK</button>
-        <button type="button" data-lang="de" aria-pressed="false">DE</button>
-        <button type="button" data-lang="en" aria-pressed="false">EN</button>
-      </div>
-    </header>
-
-    <div class="gallery" data-gallery>
-      <a href="../sluzby/"><img src="../images/gallery/image_02.png" alt="" width="210" height="140"></a>
-      <a href="../sluzby/"><img src="../images/gallery/image_03.png" alt="" width="210" height="140"></a>
-      <a href="../sluzby/"><img src="../images/gallery/image_04.png" alt="" width="210" height="140"></a>
+<body>
+  <header class="app-bar">
+    <a class="brand" href="../"><b>thedesigns.org</b><span data-i18n="brandSub">Engineering Workspace</span></a>
+    <nav class="world-nav">
+      <a href="../" data-i18n="navHome">Workspace</a>
+      <a href="../kontakt/" data-i18n="navKontakt">Kontakt</a>
+      <a href="../impressum/">Impressum</a>
+    </nav>
+    <div class="lang">
+      <button type="button" data-lang="sk" aria-pressed="true">SK</button>
+      <button type="button" data-lang="de">DE</button>
+      <button type="button" data-lang="en">EN</button>
     </div>
-
-    <div class="layout">
-      <aside class="sidebar">
-        <nav class="nav" aria-label="Main">
-          <ul>
-            <li><a href="../" data-i18n="navFirma">Firma</a></li>
-            <li><a href="../sluzby/" data-i18n="navSluzby">Služby</a></li>
-            <li><a href="../referencie/" data-i18n="navRef">Referencie</a></li>
-            <li><a href="../kontakt/" data-i18n="navKontakt">Kontakt</a></li>
-            <li><a href="../impressum/" data-i18n="navImpressum">Impressum</a></li>
-            <li><a href="./" aria-current="page" data-i18n="navPrivacy">Ochrana údajov</a></li>
-          </ul>
-        </nav>
-        <div class="side-contact">
-          <strong data-i18n="sideName">thedesigns.org</strong>
-          <p data-i18n="sideLine">Staff augmentation · PLC & elektro</p>
-          <table>
-            <tr><td data-i18n="sidePhone">E-mail</td><td><a href="mailto:hello@thedesigns.org">hello@thedesigns.org</a></td></tr>
-            <tr><td data-i18n="sideMore">viac</td><td><a href="../kontakt/" data-i18n="sideContact">Kontakt</a></td></tr>
-          </table>
-        </div>
-      </aside>
-
-      <main class="content">
-        <h1 data-i18n="pTitle">Ochrana údajov</h1>
-        <p class="lead" data-i18n="pLead">Ochrana osobných údajov je pre nás dôležitá. Nižšie je stručný prehľad, aké údaje spracúvame.</p>
-        <h2 data-i18n="pCtrl">Prevádzkovateľ</h2>
-        <p data-i18n="pCtrlP">Prevádzkovateľom spracúvania údajov na tomto webe je thedesigns.org (kontakt: hello@thedesigns.org).</p>
-        <h2 data-i18n="pLog">Log súbory</h2>
-        <p data-i18n="pLogP">Hosting môže ukladať anonymizované prístupové logy (čas, cesta, typ prehliadača) na zabezpečenie prevádzky. Cookies na tomto webe nepoužívame na sledovanie.</p>
-        <h2 data-i18n="pMail">E-mail / kontakt</h2>
-        <p data-i18n="pMailP">Ak nás kontaktujete e-mailom, údaje z vašej správy použijeme len na vybavenie dopytu.</p>
-      </main>
-    </div>
-
-    <footer class="site-foot">
-      <span data-i18n="foot">© 2026 thedesigns.org — PLC & priemyselná automatizácia · SK/CZ/DE</span>
-      <a href="../../">thedesigns.org</a>
-    </footer>
-  </div>
-  <script src="../js/site.js" defer></script>
+  </header>
+  <main class="page-plain wrap">
+    <h1 data-i18n="pTitle">Ochrana údajov</h1>
+    <p class="lead" data-i18n="pLead">Stručný prehľad spracúvania údajov.</p>
+    <h2 style="margin-top:24px" data-i18n="pCtrl">Prevádzkovateľ</h2>
+    <p style="color:var(--ink-dim)" data-i18n="pCtrlP">thedesigns.org · hello@thedesigns.org</p>
+    <h2 style="margin-top:20px" data-i18n="pLog">Log súbory</h2>
+    <p style="color:var(--ink-dim)" data-i18n="pLogP">Hosting môže ukladať anonymizované prístupové logy. Tracking cookies nepoužívame.</p>
+    <h2 style="margin-top:20px" data-i18n="pMail">E-mail</h2>
+    <p style="color:var(--ink-dim)" data-i18n="pMailP">Údaje z dopytu použijeme len na vybavenie správy.</p>
+  </main>
+  <footer class="app-foot"><span data-i18n="foot">© 2026 thedesigns.org</span><a href="../">Workspace</a></footer>
+  <script>
+    window.WS_PAGE_I18N = {
+      sk: {
+        pTitle: "Ochrana údajov", pLead: "Stručný prehľad spracúvania údajov.",
+        pCtrl: "Prevádzkovateľ", pCtrlP: "thedesigns.org · hello@thedesigns.org",
+        pLog: "Log súbory", pLogP: "Hosting môže ukladať anonymizované prístupové logy. Tracking cookies nepoužívame.",
+        pMail: "E-mail", pMailP: "Údaje z dopytu použijeme len na vybavenie správy."
+      },
+      de: {
+        pTitle: "Datenschutz", pLead: "Kurzer Überblick zur Datenverarbeitung.",
+        pCtrl: "Verantwortlicher", pCtrlP: "thedesigns.org · hello@thedesigns.org",
+        pLog: "Logfiles", pLogP: "Hosting kann anonymisierte Zugriffsprotokolle speichern. Keine Tracking-Cookies.",
+        pMail: "E-Mail", pMailP: "Anfragedaten nur zur Bearbeitung Ihrer Nachricht."
+      },
+      en: {
+        pTitle: "Privacy", pLead: "Short overview of data processing.",
+        pCtrl: "Controller", pCtrlP: "thedesigns.org · hello@thedesigns.org",
+        pLog: "Log files", pLogP: "Hosting may store anonymized access logs. No tracking cookies.",
+        pMail: "E-mail", pMailP: "Enquiry data is used only to handle your message."
+      }
+    };
+  </script>
+  <script src="../js/workspace.js" defer></script>
 </body>
 </html>

@@ -3,74 +3,44 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Impressum | Automatizácia | thedesigns.org</title>
-  <meta name="description" content="Impressum — thedesigns.org Automatizácia">
+  <title>Impressum | Engineering Workspace</title>
   <link rel="canonical" href="https://thedesigns.org/elektro/impressum/">
   <link rel="icon" href="/icon.svg" type="image/svg+xml">
-  <link rel="preconnect" href="https://fonts.googleapis.com">
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Barlow:wght@400;500;600;700&family=IBM+Plex+Mono:wght@500;600&display=swap" rel="stylesheet">
-  <link rel="stylesheet" href="../css/site.css">
+  <link rel="stylesheet" href="../css/workspace.css">
 </head>
-<body data-asset-root="..">
-  <div class="shell">
-    <header class="site-head">
-      <a class="brand" href="../">
-        <strong>thedesigns.org</strong>
-        <span data-i18n="brandSub">Automatizácia</span>
-      </a>
-      <p class="claim" data-i18n="claim" data-i18n-html>PLC · elektrikári · commissioning.<br>Európa vrátane Nemecka.</p>
-      <div class="lang" role="group" aria-label="Language">
-        <button type="button" data-lang="sk" aria-pressed="true">SK</button>
-        <button type="button" data-lang="de" aria-pressed="false">DE</button>
-        <button type="button" data-lang="en" aria-pressed="false">EN</button>
-      </div>
-    </header>
-
-    <div class="gallery" data-gallery>
-      <a href="../sluzby/"><img src="../images/gallery/image_10.png" alt="" width="210" height="140"></a>
-      <a href="../sluzby/"><img src="../images/gallery/image_11.png" alt="" width="210" height="140"></a>
-      <a href="../sluzby/"><img src="../images/gallery/image_01.png" alt="" width="210" height="140"></a>
+<body>
+  <header class="app-bar">
+    <a class="brand" href="../"><b>thedesigns.org</b><span data-i18n="brandSub">Engineering Workspace</span></a>
+    <nav class="world-nav">
+      <a href="../" data-i18n="navHome">Workspace</a>
+      <a href="../drawing/" data-i18n="navDraw">Elektro</a>
+      <a href="../cad/" data-i18n="navCad">Mechanika</a>
+      <a href="../plc/" data-i18n="navPlc">PLC</a>
+      <a href="../referencie/" data-i18n="navRef">Referencie</a>
+      <a href="../kontakt/" data-i18n="navKontakt">Kontakt</a>
+    </nav>
+    <div class="lang">
+      <button type="button" data-lang="sk" aria-pressed="true">SK</button>
+      <button type="button" data-lang="de">DE</button>
+      <button type="button" data-lang="en">EN</button>
     </div>
-
-    <div class="layout">
-      <aside class="sidebar">
-        <nav class="nav" aria-label="Main">
-          <ul>
-            <li><a href="../" data-i18n="navFirma">Firma</a></li>
-            <li><a href="../sluzby/" data-i18n="navSluzby">Služby</a></li>
-            <li><a href="../referencie/" data-i18n="navRef">Referencie</a></li>
-            <li><a href="../kontakt/" data-i18n="navKontakt">Kontakt</a></li>
-            <li><a href="./" aria-current="page" data-i18n="navImpressum">Impressum</a></li>
-            <li><a href="../ochrana-udajov/" data-i18n="navPrivacy">Ochrana údajov</a></li>
-          </ul>
-        </nav>
-        <div class="side-contact">
-          <strong data-i18n="sideName">thedesigns.org</strong>
-          <p data-i18n="sideLine">Staff augmentation · PLC & elektro</p>
-          <table>
-            <tr><td data-i18n="sidePhone">E-mail</td><td><a href="mailto:hello@thedesigns.org">hello@thedesigns.org</a></td></tr>
-            <tr><td data-i18n="sideMore">viac</td><td><a href="../kontakt/" data-i18n="sideContact">Kontakt</a></td></tr>
-          </table>
-        </div>
-      </aside>
-
-      <main class="content">
-        <h1 data-i18n="iTitle">Impressum</h1>
-        <h2 data-i18n="iOp">Prevádzkovateľ</h2>
-        <p data-i18n="iOpV">thedesigns.org</p>
-        <h2 data-i18n="iContact">Kontakt</h2>
-        <p>E-Mail: <a href="mailto:hello@thedesigns.org">hello@thedesigns.org</a><br>
-          WWW: <a href="https://thedesigns.org/">www.thedesigns.org</a></p>
-        <p data-i18n="iNote">Tento web je informačná prezentácia služby staff augmentation v oblasti priemyselnej automatizácie. Pre zmluvné podmienky a fakturačné údaje nás kontaktujte e-mailom.</p>
-      </main>
-    </div>
-
-    <footer class="site-foot">
-      <span data-i18n="foot">© 2026 thedesigns.org — PLC & priemyselná automatizácia · SK/CZ/DE</span>
-      <a href="../../">thedesigns.org</a>
-    </footer>
-  </div>
-  <script src="../js/site.js" defer></script>
+  </header>
+  <main class="page-plain wrap">
+    <h1>Impressum</h1>
+    <p class="lead" style="margin-top:16px">thedesigns.org<br>
+      <a href="mailto:hello@thedesigns.org">hello@thedesigns.org</a><br>
+      <a href="https://thedesigns.org/">www.thedesigns.org</a></p>
+    <p style="margin-top:16px;color:var(--ink-dim);max-width:54ch" data-i18n="iNote">Informačná prezentácia staff augmentation v priemyselnej automatizácii. Zmluvné a fakturačné údaje na vyžiadanie.</p>
+  </main>
+  <footer class="app-foot"><span data-i18n="foot">© 2026 thedesigns.org</span><a href="../ochrana-udajov/">Privacy</a></footer>
+  <script>
+    window.WS_PAGE_I18N = {
+      sk: { iNote: "Informačná prezentácia staff augmentation v priemyselnej automatizácii. Zmluvné a fakturačné údaje na vyžiadanie." },
+      de: { iNote: "Informationsdarstellung von Staff Augmentation in der Industrieautomation. Vertrags- und Rechnungsdaten auf Anfrage." },
+      en: { iNote: "Informational presentation of staff augmentation in industrial automation. Contract and invoicing details on request." }
+    };
+  </script>
+  <script src="../js/workspace.js" defer></script>
 </body>
 </html>

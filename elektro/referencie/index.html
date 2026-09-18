@@ -3,89 +3,67 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Referencie | Automatizácia | thedesigns.org</title>
-  <meta name="description" content="Referencie a nasadenia v nemeckom priemysle — automotive, strojárstvo, automatizácia.">
+  <title>Referencie | Engineering Workspace</title>
+  <meta name="description" content="Referencie v nemeckom priemysle — BMW, Volkswagen, Mercedes, Bosch, Siemens a ďalšie.">
   <link rel="canonical" href="https://thedesigns.org/elektro/referencie/">
   <link rel="icon" href="/icon.svg" type="image/svg+xml">
-  <link rel="preconnect" href="https://fonts.googleapis.com">
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Barlow:wght@400;500;600;700&family=IBM+Plex+Mono:wght@500;600&display=swap" rel="stylesheet">
-  <link rel="stylesheet" href="../css/site.css">
+  <link rel="stylesheet" href="../css/workspace.css">
 </head>
-<body data-asset-root="..">
-  <div class="shell">
-    <header class="site-head">
-      <a class="brand" href="../">
-        <strong>thedesigns.org</strong>
-        <span data-i18n="brandSub">Automatizácia</span>
-      </a>
-      <p class="claim" data-i18n="claim" data-i18n-html>PLC · elektrikári · commissioning.<br>Európa vrátane Nemecka.</p>
-      <div class="lang" role="group" aria-label="Language">
-        <button type="button" data-lang="sk" aria-pressed="true">SK</button>
-        <button type="button" data-lang="de" aria-pressed="false">DE</button>
-        <button type="button" data-lang="en" aria-pressed="false">EN</button>
-      </div>
-    </header>
-
-    <div class="gallery" data-gallery>
-      <a href="../sluzby/"><img src="../images/gallery/image_04.png" alt="" width="210" height="140"></a>
-      <a href="../sluzby/"><img src="../images/gallery/image_05.png" alt="" width="210" height="140"></a>
-      <a href="../sluzby/"><img src="../images/gallery/image_06.png" alt="" width="210" height="140"></a>
+<body>
+  <header class="app-bar">
+    <a class="brand" href="../"><b>thedesigns.org</b><span data-i18n="brandSub">Engineering Workspace</span></a>
+    <nav class="world-nav">
+      <a href="../" data-i18n="navHome">Workspace</a>
+      <a href="../drawing/" data-i18n="navDraw">Elektro</a>
+      <a href="../cad/" data-i18n="navCad">Mechanika</a>
+      <a href="../plc/" data-i18n="navPlc">PLC</a>
+      <a href="../commissioning/" data-i18n="navComm">Commissioning</a>
+      <a href="../service/" data-i18n="navSvc">Service</a>
+      <a href="./" aria-current="page" data-i18n="navRef">Referencie</a>
+      <a href="../kontakt/" data-i18n="navKontakt">Kontakt</a>
+    </nav>
+    <div class="lang">
+      <button type="button" data-lang="sk" aria-pressed="true">SK</button>
+      <button type="button" data-lang="de">DE</button>
+      <button type="button" data-lang="en">EN</button>
     </div>
+  </header>
 
-    <div class="layout">
-      <aside class="sidebar">
-        <nav class="nav" aria-label="Main">
-          <ul>
-            <li><a href="../" data-i18n="navFirma">Firma</a></li>
-            <li><a href="../sluzby/" data-i18n="navSluzby">Služby</a></li>
-            <li><a href="./" aria-current="page" data-i18n="navRef">Referencie</a></li>
-            <li><a href="../kontakt/" data-i18n="navKontakt">Kontakt</a></li>
-            <li><a href="../impressum/" data-i18n="navImpressum">Impressum</a></li>
-            <li><a href="../ochrana-udajov/" data-i18n="navPrivacy">Ochrana údajov</a></li>
-          </ul>
-        </nav>
-        <div class="side-contact">
-          <strong data-i18n="sideName">thedesigns.org</strong>
-          <p data-i18n="sideLine">Staff augmentation · PLC & elektro</p>
-          <table>
-            <tr><td data-i18n="sidePhone">E-mail</td><td><a href="mailto:hello@thedesigns.org">hello@thedesigns.org</a></td></tr>
-            <tr><td data-i18n="sideMore">viac</td><td><a href="../kontakt/" data-i18n="sideContact">Kontakt</a></td></tr>
-          </table>
-        </div>
-      </aside>
-
-      <main class="content">
-        <h1 data-i18n="rTitle">Referencie</h1>
-        <p class="lead" data-i18n="rIntro">Projekty a nasadenia v nemeckom a európskom priemysle — príklady partnerstiev a prostredí, v ktorých naši špecialisti pôsobia:</p>
-
-        <ul class="ref-list">
-          <li>BMW AG <span>München</span></li>
-          <li>Volkswagen AG <span>Wolfsburg</span></li>
-          <li>Mercedes-Benz AG <span>Stuttgart</span></li>
-          <li>Audi AG <span>Ingolstadt</span></li>
-          <li>Robert Bosch GmbH <span>Stuttgart</span></li>
-          <li>Siemens AG <span>Erlangen</span></li>
-          <li>Continental AG <span>Hannover</span></li>
-          <li>Schaeffler AG <span>Herzogenaurach</span></li>
-          <li>ZF Friedrichshafen AG <span>Friedrichshafen</span></li>
-          <li>BASF SE <span>Ludwigshafen</span></li>
-          <li>thyssenkrupp AG <span>Essen</span></li>
-          <li>KUKA AG <span>Augsburg</span></li>
-        </ul>
-
-        <div class="cta-row">
-          <a class="btn btn-primary" href="../kontakt/" data-i18n="kCta">Napísať brief</a>
-          <a class="btn btn-ghost" href="../sluzby/" data-i18n="navSluzby">Služby</a>
-        </div>
-      </main>
+  <main class="page-plain wrap">
+    <h2 data-i18n="navRef">Referencie</h2>
+    <h1 data-i18n="rH">Nemecký a európsky priemysel.</h1>
+    <p class="lead" data-i18n="rL">Príklady prostredí, v ktorých naši špecialisti pôsobia:</p>
+    <ul class="ref-list">
+      <li>BMW AG <span>München</span></li>
+      <li>Volkswagen AG <span>Wolfsburg</span></li>
+      <li>Mercedes-Benz AG <span>Stuttgart</span></li>
+      <li>Audi AG <span>Ingolstadt</span></li>
+      <li>Robert Bosch GmbH <span>Stuttgart</span></li>
+      <li>Siemens AG <span>Erlangen</span></li>
+      <li>Continental AG <span>Hannover</span></li>
+      <li>Schaeffler AG <span>Herzogenaurach</span></li>
+      <li>ZF Friedrichshafen AG <span>Friedrichshafen</span></li>
+      <li>BASF SE <span>Ludwigshafen</span></li>
+      <li>thyssenkrupp AG <span>Essen</span></li>
+      <li>KUKA AG <span>Augsburg</span></li>
+    </ul>
+    <div class="cta-row">
+      <a class="btn btn-solid" href="../kontakt/" data-i18n="navKontakt">Kontakt</a>
     </div>
+  </main>
 
-    <footer class="site-foot">
-      <span data-i18n="foot">© 2026 thedesigns.org — PLC & priemyselná automatizácia · SK/CZ/DE</span>
-      <a href="../../">thedesigns.org</a>
-    </footer>
-  </div>
-  <script src="../js/site.js" defer></script>
+  <footer class="app-foot">
+    <span data-i18n="foot">© 2026 thedesigns.org — digitálny engineering workspace</span>
+    <a href="../">Workspace</a>
+  </footer>
+  <script>
+    window.WS_PAGE_I18N = {
+      sk: { rH: "Nemecký a európsky priemysel.", rL: "Príklady prostredí, v ktorých naši špecialisti pôsobia:" },
+      de: { rH: "Deutsche und europäische Industrie.", rL: "Beispiele von Umfeldern, in denen unsere Spezialisten tätig sind:" },
+      en: { rH: "German and European industry.", rL: "Examples of environments where our specialists work:" }
+    };
+  </script>
+  <script src="../js/workspace.js" defer></script>
 </body>
 </html>

@@ -1,0 +1,149 @@
+<!DOCTYPE html>
+<html lang="sk">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>PLC · Automation Workspace | thedesigns.org</title>
+  <meta name="description" content="PLC engineering workspace inšpirovaný TIA workflow: project tree, FBD, tagy, PROFINET — bez kopírovania Siemens UI.">
+  <link rel="canonical" href="https://thedesigns.org/elektro/plc/">
+  <link rel="icon" href="/icon.svg" type="image/svg+xml">
+  <link href="https://fonts.googleapis.com/css2?family=Barlow:wght@400;500;600;700&family=IBM+Plex+Mono:wght@500;600&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="../css/workspace.css">
+</head>
+<body class="world-plc">
+  <header class="app-bar">
+    <a class="brand" href="../"><b>thedesigns.org</b><span data-i18n="brandSub">Engineering Workspace</span></a>
+    <nav class="world-nav">
+      <a href="../" data-i18n="navHome">Workspace</a>
+      <a href="../drawing/" data-i18n="navDraw">Elektro</a>
+      <a href="../cad/" data-i18n="navCad">Mechanika</a>
+      <a href="./" aria-current="page" data-i18n="navPlc">PLC</a>
+      <a href="../commissioning/" data-i18n="navComm">Commissioning</a>
+      <a href="../service/" data-i18n="navSvc">Service</a>
+      <a href="../referencie/" data-i18n="navRef">Referencie</a>
+      <a href="../kontakt/" data-i18n="navKontakt">Kontakt</a>
+    </nav>
+    <span class="status-pill"><i></i> CPU RUN</span>
+    <div class="lang">
+      <button type="button" data-lang="sk" aria-pressed="true">SK</button>
+      <button type="button" data-lang="de">DE</button>
+      <button type="button" data-lang="en">EN</button>
+    </div>
+  </header>
+
+  <div class="plc-app">
+    <aside class="plc-tree" aria-label="Project tree">
+      <div class="group">PLC_1</div>
+      <button type="button" class="is-active">CPU_1516F</button>
+      <button type="button">Device config</button>
+      <div class="group">Program blocks</div>
+      <button type="button">OB1 · Main</button>
+      <button type="button">FB10 · ConvSeq</button>
+      <button type="button">FC20 · Safety</button>
+      <button type="button">DB100 · Tags</button>
+      <div class="group">Technology</div>
+      <button type="button">TO_SpeedAxis</button>
+      <div class="group">HMI_1</div>
+      <button type="button">Screen_Overview</button>
+      <div class="group">Network</div>
+      <button type="button">PROFINET_IO</button>
+    </aside>
+
+    <div class="plc-workspace">
+      <div class="plc-copy">
+        <h2 data-i18n="pEy">Industrial automation</h2>
+        <h1 data-i18n="pH">PLC workspace. Logika, tagy, sieť.</h1>
+        <p class="lead" data-i18n="pL">Inšpirované profesionálnym PLC engineeringom (TIA workflow) — bez Siemens brandingu. Staff augmentation: TIA Portal, TwinCAT, Rockwell.</p>
+      </div>
+
+      <div class="plc-tabs">
+        <span class="on">FB10 · ConvSeq</span>
+        <span>DB100 · Tags</span>
+        <span>PROFINET</span>
+      </div>
+
+      <div class="logic-board">
+        <div class="fbd" aria-label="Function block diagram">
+          <div class="fbd-block" title="Digital input">
+            <div class="name">Sensor_In</div>
+            <div class="pin"><span>DI</span><b class="tag-on">TRUE</b></div>
+            <div class="pin"><span>Addr</span><b>%I0.2</b></div>
+          </div>
+          <div class="fbd-wire"></div>
+          <div class="fbd-block">
+            <div class="name">Safety_OK</div>
+            <div class="pin"><span>IN</span><b class="tag-on">1</b></div>
+            <div class="pin"><span>OUT</span><b class="tag-on">1</b></div>
+          </div>
+          <div class="fbd-wire"></div>
+          <div class="fbd-block">
+            <div class="name">Drive_Enable</div>
+            <div class="pin"><span>EN</span><b class="tag-on">1</b></div>
+            <div class="pin"><span>Q</span><b>%Q0.0</b></div>
+          </div>
+          <div class="fbd-wire"></div>
+          <div class="fbd-block">
+            <div class="name">Motor_Running</div>
+            <div class="pin"><span>FB</span><b class="tag-on">1</b></div>
+            <div class="pin"><span>Out</span><b>%Q0.1</b></div>
+          </div>
+          <div class="fbd-wire"></div>
+          <div class="fbd-block">
+            <div class="name">Sensor_Out</div>
+            <div class="pin"><span>DI</span><b class="tag-off">FALSE</b></div>
+            <div class="pin"><span>Addr</span><b>%I0.3</b></div>
+          </div>
+        </div>
+      </div>
+
+      <table class="io-table">
+        <thead>
+          <tr><th>Tag</th><th>Address</th><th>Type</th><th>Comment</th><th>State</th></tr>
+        </thead>
+        <tbody>
+          <tr><td>EStop_OK</td><td>%I0.0</td><td>Bool</td><td>Safety circuit</td><td class="tag-on">TRUE</td></tr>
+          <tr><td>Start_PB</td><td>%I0.1</td><td>Bool</td><td>HMI / local</td><td class="tag-on">TRUE</td></tr>
+          <tr><td>Sensor_In</td><td>%I0.2</td><td>Bool</td><td>Entry PE</td><td class="tag-on">TRUE</td></tr>
+          <tr><td>Sensor_Out</td><td>%I0.3</td><td>Bool</td><td>Exit PE</td><td class="tag-off">FALSE</td></tr>
+          <tr><td>Drive_Enable</td><td>%Q0.0</td><td>Bool</td><td>Inverter enable</td><td class="tag-on">TRUE</td></tr>
+          <tr><td>Motor_Running</td><td>%Q0.1</td><td>Bool</td><td>Run feedback</td><td class="tag-on">TRUE</td></tr>
+        </tbody>
+      </table>
+
+      <div class="cta-row">
+        <a class="btn btn-solid" href="../commissioning/" data-i18n="pNext">Ďalej: Commissioning</a>
+        <a class="btn" href="../kontakt/" data-i18n="navKontakt">Kontakt</a>
+      </div>
+    </div>
+  </div>
+
+  <footer class="app-foot">
+    <span data-i18n="foot">© 2026 thedesigns.org — digitálny engineering workspace</span>
+    <span>TIA Portal · TwinCAT · Rockwell · EPLAN</span>
+  </footer>
+
+  <script>
+    window.WS_PAGE_I18N = {
+      sk: {
+        pEy: "Industrial automation",
+        pH: "PLC workspace. Logika, tagy, sieť.",
+        pL: "Inšpirované profesionálnym PLC engineeringom (TIA workflow) — bez Siemens brandingu. Staff augmentation: TIA Portal, TwinCAT, Rockwell.",
+        pNext: "Ďalej: Commissioning"
+      },
+      de: {
+        pEy: "Industrieautomation",
+        pH: "SPS-Workspace. Logik, Tags, Netzwerk.",
+        pL: "Inspiriert von professionellem SPS-Engineering (TIA-Workflow) — ohne Siemens-Branding. Staff Augmentation: TIA Portal, TwinCAT, Rockwell.",
+        pNext: "Weiter: Inbetriebnahme"
+      },
+      en: {
+        pEy: "Industrial automation",
+        pH: "PLC workspace. Logic, tags, network.",
+        pL: "Inspired by professional PLC engineering (TIA-style workflow) — without Siemens branding. Staff augmentation: TIA Portal, TwinCAT, Rockwell.",
+        pNext: "Next: Commissioning"
+      }
+    };
+  </script>
+  <script src="../js/workspace.js" defer></script>
+</body>
+</html>

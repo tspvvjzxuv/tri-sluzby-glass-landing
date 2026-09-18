@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="sk">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Service · Monitoring | thedesigns.org</title>
+  <meta name="description" content="Service a monitoring — dostupnosť linky, údržba, staff augmentation PLC a elektrikárov.">
+  <link rel="canonical" href="https://thedesigns.org/elektro/service/">
+  <link rel="icon" href="/icon.svg" type="image/svg+xml">
+  <link href="https://fonts.googleapis.com/css2?family=Barlow:wght@400;500;600;700&family=IBM+Plex+Mono:wght@500;600&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="../css/workspace.css">
+</head>
+<body>
+  <header class="app-bar">
+    <a class="brand" href="../"><b>thedesigns.org</b><span data-i18n="brandSub">Engineering Workspace</span></a>
+    <nav class="world-nav">
+      <a href="../" data-i18n="navHome">Workspace</a>
+      <a href="../drawing/" data-i18n="navDraw">Elektro</a>
+      <a href="../cad/" data-i18n="navCad">Mechanika</a>
+      <a href="../plc/" data-i18n="navPlc">PLC</a>
+      <a href="../commissioning/" data-i18n="navComm">Commissioning</a>
+      <a href="./" aria-current="page" data-i18n="navSvc">Service</a>
+      <a href="../referencie/" data-i18n="navRef">Referencie</a>
+      <a href="../kontakt/" data-i18n="navKontakt">Kontakt</a>
+    </nav>
+    <div class="lang">
+      <button type="button" data-lang="sk" aria-pressed="true">SK</button>
+      <button type="button" data-lang="de">DE</button>
+      <button type="button" data-lang="en">EN</button>
+    </div>
+  </header>
+
+  <main class="page-plain wrap">
+    <h2 data-i18n="svEy">Service</h2>
+    <h1 data-i18n="svH">Monitoring a údržba v prevádzke.</h1>
+    <p class="lead" data-i18n="svL">Keď linka beží, držíme dostupnosť: diagnostika, náhradné kapacity PLC/elektro, retrofit. Nasadenie tímu typicky 2–4 týždne.</p>
+
+    <div class="diag-grid">
+      <div class="diag-card"><div class="label">OEE (shift)</div><div class="val">87.4%</div></div>
+      <div class="diag-card"><div class="label">MTBF</div><div class="val">142 h</div></div>
+      <div class="diag-card"><div class="label">Open tickets</div><div class="val" style="color:var(--warn)">2</div></div>
+    </div>
+
+    <div class="hmi-panel" style="margin-top:24px">
+      <div class="hmi-title">MAINTENANCE · QUEUE</div>
+      <div class="sig-row"><i class="sig-led warn"></i> Drive encoder warning · Axis_1</div>
+      <div class="sig-row"><i class="sig-led on"></i> Lubrication due · 36 h</div>
+      <div class="sig-row"><i class="sig-led"></i> Spare PLC CPU · on shelf</div>
+    </div>
+
+    <div class="cta-row">
+      <a class="btn btn-solid" href="mailto:hello@thedesigns.org?subject=Service%20%2F%20capacity" data-i18n="svCta">Vyžiadať kapacity</a>
+      <a class="btn" href="../referencie/" data-i18n="navRef">Referencie</a>
+    </div>
+  </main>
+
+  <footer class="app-foot">
+    <span data-i18n="foot">© 2026 thedesigns.org — digitálny engineering workspace</span>
+    <a href="../kontakt/" data-i18n="navKontakt">Kontakt</a>
+  </footer>
+
+  <script>
+    window.WS_PAGE_I18N = {
+      sk: { svEy: "Service", svH: "Monitoring a údržba v prevádzke.", svL: "Keď linka beží, držíme dostupnosť: diagnostika, náhradné kapacity PLC/elektro, retrofit. Nasadenie tímu typicky 2–4 týždne.", svCta: "Vyžiadať kapacity" },
+      de: { svEy: "Service", svH: "Monitoring und Instandhaltung.", svL: "Wenn die Linie läuft, sichern wir Verfügbarkeit: Diagnose, SPS/Elektro-Kapazität, Retrofit. Einsatz typisch in 2–4 Wochen.", svCta: "Kapazität anfragen" },
+      en: { svEy: "Service", svH: "Monitoring and maintenance in production.", svL: "When the line runs, we protect availability: diagnostics, PLC/electrical capacity, retrofit. Typical deployment in 2–4 weeks.", svCta: "Request capacity" }
+    };
+  </script>
+  <script src="../js/workspace.js" defer></script>
+</body>
+</html>
