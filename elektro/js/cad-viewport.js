@@ -28,26 +28,15 @@
       powerPreference: "high-performance",
     });
     renderer.setPixelRatio(Math.min(window.devicePixelRatio || 1, reduced ? 1.25 : 2));
-    renderer.outputColorSpace = THREE.SRGBColorSpace;
-    renderer.toneMapping = THREE.ACESFilmicToneMapping;
-    renderer.toneMappingExposure = 1.02;
-    renderer.shadowMap.enabled = !reduced;
-    renderer.shadowMap.type = THREE.PCFSoftShadowMap;
+    if ("outputColorSpace" in renderer) renderer.outputColorSpace = THREE.SRGBColorSpace;
+    renderer.toneMapping = THREE.NoToneMapping;
+    renderer.shadowMap.enabled = false;
 
-    scene.add(new THREE.AmbientLight(0x9aa3ad, 0.42));
-    scene.add(new THREE.HemisphereLight(0xd4d8dc, 0x2a2e34, 0.5));
+    scene.add(new THREE.AmbientLight(0xc8ced4, 0.75));
+    scene.add(new THREE.HemisphereLight(0xffffff, 0x4a5058, 0.75));
 
-    const key = new THREE.DirectionalLight(0xf4f6f8, 1.0);
+    const key = new THREE.DirectionalLight(0xffffff, 1.25);
     key.position.set(6, 10, 5);
-    key.castShadow = !reduced;
-    key.shadow.mapSize.set(1024, 1024);
-    key.shadow.camera.near = 1;
-    key.shadow.camera.far = 28;
-    key.shadow.camera.left = -7;
-    key.shadow.camera.right = 7;
-    key.shadow.camera.top = 7;
-    key.shadow.camera.bottom = -7;
-    key.shadow.bias = -0.00025;
     scene.add(key);
 
     const fill = new THREE.DirectionalLight(0xaab2ba, 0.32);
@@ -62,15 +51,17 @@
       new THREE.MeshStandardMaterial({ color: 0x212428, metalness: 0.04, roughness: 0.94 })
     );
     floor.rotation.x = -Math.PI / 2;
-    floor.receiveShadow = true;
     scene.add(floor);
 
     const grid = new THREE.GridHelper(14, 28, 0x3a4048, 0x2a2e34);
     grid.position.y = 0.003;
-    if (grid.material) {
-      grid.material.transparent = true;
-      grid.material.opacity = 0.45;
-    }
+    const gMat = Array.isArray(grid.material) ? grid.material : [grid.material];
+    gMat.forEach((m) => {
+      if (!m) return;
+      m.transparent = true;
+      m.opacity = 0.5;
+      m.depthWrite = false;
+    });
     scene.add(grid);
 
     // RAL-inspired greys only (no toy colors)
@@ -79,6 +70,7 @@
     const matDark = std(0x3a4048, 0.55, 0.4);
     const matBelt = std(0x2c3036, 0.06, 0.9);
     const matMotor = std(0x4e5660, 0.48, 0.4);
+    const matSensor = std(0x6e7680, 0.55, 0.38);
     const matCab = std(0xb4bac2, 0.22, 0.5);
     const matCabDoor = std(0xa8aeb6, 0.28, 0.46);
     const matRubber = std(0x1e2228, 0.05, 0.85);
@@ -103,8 +95,6 @@
 
     function mesh(geo, mat) {
       const m = new THREE.Mesh(geo, mat);
-      m.castShadow = !reduced;
-      m.receiveShadow = true;
       return m;
     }
 
@@ -353,8 +343,8 @@
 
     function resize() {
       const parent = canvas.parentElement;
-      const w = parent.clientWidth || 640;
-      const h = Math.max(parent.clientHeight || 420, 360);
+      const w = Math.max(parent ? parent.clientWidth : 0, canvas.clientWidth || 640, 320);
+      const h = Math.max(parent ? parent.clientHeight : 0, canvas.clientHeight || 420, 420);
       camera.aspect = w / h;
       camera.updateProjectionMatrix();
       renderer.setSize(w, h, false);
@@ -415,8 +405,14 @@
     if (_loading) return;
     _loading = true;
     const s = document.createElement("script");
-    s.src = "https://unpkg.com/three@0.160.0/build/three.min.js";
+    const base = document.querySelector('script[src*="cad-viewport.js"]');
+    const root = base ? base.getAttribute("src").replace(/cad-viewport\.js.*$/, "") : "../js/";
+    s.src = root + "vendor/three.min.js";
     s.onload = () => _queue.splice(0).forEach((fn) => fn());
+    s.onerror = () => {
+      console.error("[CadViewport] failed to load three.min.js");
+      _loading = false;
+    };
     document.head.appendChild(s);
   }
 
@@ -424,7 +420,14 @@
     mount(selector, opts) {
       const el = typeof selector === "string" ? document.querySelector(selector) : selector;
       if (!el) return;
-      loadThree(() => boot(el, opts || {}));
+      loadThree(() => {
+        try {
+          boot(el, opts || {});
+        } catch (err) {
+          console.error("[CadViewport]", err);
+          el.style.background = "#2a2e34";
+        }
+      });
     },
   };
 })();
