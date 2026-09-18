@@ -282,28 +282,30 @@ h2 {
   position: absolute;
   right: 18px;
   bottom: 18px;
-  width: min(340px, calc(100% - 36px));
+  width: min(300px, calc(100% - 36px));
   border: 1.5px solid var(--pen);
-  background: rgba(236, 238, 241, 0.96);
+  background: #eceef1;
   font-family: var(--mono);
   font-size: 0.58rem;
   z-index: 3;
 }
-.title-block table { width: 100%; border-collapse: collapse; }
+.title-block table { width: 100%; border-collapse: collapse; table-layout: fixed; }
 .title-block td {
   border: 1px solid rgba(28,31,36,0.35);
-  padding: 5px 7px;
+  padding: 4px 6px;
   color: var(--pen);
+  vertical-align: top;
+  word-break: break-word;
 }
 .title-block td:first-child {
-  width: 38%;
+  width: 32%;
   color: var(--pen-dim);
   text-transform: uppercase;
   letter-spacing: 0.06em;
 }
 .title-block .tb-title {
   font-family: var(--font);
-  font-size: 0.85rem;
+  font-size: 0.78rem;
   font-weight: 700;
   letter-spacing: 0.02em;
 }
