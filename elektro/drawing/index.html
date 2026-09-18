@@ -70,40 +70,47 @@
           <div>
             <svg class="schematic" viewBox="0 0 320 360" role="img" aria-label="Cabinet schematic">
               <defs>
-                <marker id="a2" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="5" markerHeight="5" orient="auto"><path d="M0 1 L9 5 L0 9 Z" fill="#2a5f7a"/></marker>
+                <marker id="a2" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="4" markerHeight="4" orient="auto"><path d="M0 1.5 L9 5 L0 8.5 Z" fill="#4a5560"/></marker>
+                <pattern id="hatch" width="4" height="4" patternUnits="userSpaceOnUse" patternTransform="rotate(45)">
+                  <line x1="0" y1="0" x2="0" y2="4" class="hatch"/>
+                </pattern>
               </defs>
-              <!-- construction -->
-              <line class="ghost draw-in" x1="20" y1="20" x2="300" y2="20"/>
-              <line class="ghost draw-in" x1="20" y1="20" x2="20" y2="300"/>
-              <!-- cabinet outline -->
-              <rect class="comp draw-in" x="50" y="40" width="160" height="240" style="animation-delay:.15s"/>
-              <line class="wire draw-in" x1="50" y1="100" x2="210" y2="100" style="animation-delay:.3s"/>
-              <line class="wire draw-in" x1="50" y1="160" x2="210" y2="160" style="animation-delay:.35s"/>
-              <line class="wire draw-in" x1="50" y1="220" x2="210" y2="220" style="animation-delay:.4s"/>
-              <!-- DIN modules -->
-              <rect class="comp draw-in" x="70" y="55" width="50" height="35" style="animation-delay:.45s"/>
-              <rect class="comp draw-in" x="130" y="55" width="50" height="35" style="animation-delay:.5s"/>
-              <rect class="comp draw-in" x="70" y="115" width="120" height="30" style="animation-delay:.55s"/>
-              <rect class="comp draw-in" x="70" y="175" width="40" height="30" style="animation-delay:.6s"/>
-              <rect class="comp draw-in" x="120" y="175" width="40" height="30" style="animation-delay:.65s"/>
-              <rect class="comp draw-in" x="70" y="235" width="120" height="28" style="animation-delay:.7s"/>
-              <!-- motor symbol outside -->
-              <circle class="comp draw-in" cx="270" cy="130" r="28" style="animation-delay:.75s"/>
-              <text class="label" x="258" y="134">M1</text>
-              <line class="wire draw-in" x1="210" y1="130" x2="242" y2="130" style="animation-delay:.8s"/>
-              <!-- dimensions -->
-              <line class="dim" x1="50" y1="300" x2="210" y2="300" marker-end="url(#a2)" marker-start="url(#a2)"/>
-              <text class="dim-text" x="110" y="315">600 mm</text>
-              <line class="dim" x1="40" y1="40" x2="40" y2="280" marker-end="url(#a2)" marker-start="url(#a2)"/>
-              <text class="dim-text" x="8" y="165" transform="rotate(-90 8 165)">1800</text>
-              <text class="label" x="70" y="48">-Q1</text>
-              <text class="label" x="130" y="48">-K1</text>
-              <text class="label" x="70" y="108">PLC · CPU</text>
-              <text class="label" x="70" y="168">DI</text>
-              <text class="label" x="120" y="168">DO</text>
-              <text class="label" x="70" y="228">X1 TERMINAL</text>
-              <text class="label" x="230" y="90">DETAIL A</text>
-              <circle cx="230" cy="90" r="10" fill="none" stroke="#2a5f7a" stroke-width="0.8"/>
+              <line class="ghost" x1="24" y1="28" x2="300" y2="28"/>
+              <line class="ghost" x1="24" y1="28" x2="24" y2="310"/>
+              <rect class="comp draw-in" x="48" y="42" width="158" height="238" style="animation-delay:.1s"/>
+              <!-- mounting plate hatch -->
+              <rect x="56" y="50" width="142" height="14" fill="url(#hatch)" stroke="none"/>
+              <line class="wire draw-in" x1="48" y1="98" x2="206" y2="98" style="animation-delay:.25s"/>
+              <line class="wire draw-in" x1="48" y1="158" x2="206" y2="158" style="animation-delay:.3s"/>
+              <line class="wire draw-in" x1="48" y1="218" x2="206" y2="218" style="animation-delay:.35s"/>
+              <rect class="comp draw-in" x="68" y="56" width="48" height="32" style="animation-delay:.4s"/>
+              <rect class="comp draw-in" x="126" y="56" width="48" height="32" style="animation-delay:.45s"/>
+              <rect class="comp draw-in" x="68" y="114" width="118" height="28" style="animation-delay:.5s"/>
+              <rect class="comp draw-in" x="68" y="174" width="38" height="28" style="animation-delay:.55s"/>
+              <rect class="comp draw-in" x="116" y="174" width="38" height="28" style="animation-delay:.6s"/>
+              <rect class="comp draw-in" x="68" y="234" width="118" height="26" style="animation-delay:.65s"/>
+              <!-- terminal ticks -->
+              <g class="draw-in" style="animation-delay:.7s" stroke="#1a1c1f" stroke-width="0.7">
+                <line x1="78" y1="234" x2="78" y2="242"/><line x1="98" y1="234" x2="98" y2="242"/>
+                <line x1="118" y1="234" x2="118" y2="242"/><line x1="138" y1="234" x2="138" y2="242"/>
+                <line x1="158" y1="234" x2="158" y2="242"/>
+              </g>
+              <circle class="comp draw-in" cx="268" cy="128" r="26" style="animation-delay:.7s"/>
+              <circle cx="268" cy="128" r="8" fill="none" stroke="#1a1c1f" stroke-width="0.8"/>
+              <text class="label" x="258" y="132">M1</text>
+              <path class="wire draw-in" d="M206 128 H242" style="animation-delay:.75s"/>
+              <line class="dim" x1="48" y1="298" x2="206" y2="298" marker-end="url(#a2)" marker-start="url(#a2)"/>
+              <text class="dim-text" x="108" y="312">600</text>
+              <line class="dim" x1="38" y1="42" x2="38" y2="280" marker-end="url(#a2)" marker-start="url(#a2)"/>
+              <text class="dim-text" x="6" y="168" transform="rotate(-90 6 168)">1800</text>
+              <text class="label" x="72" y="52">-Q1</text>
+              <text class="label" x="130" y="52">-K1</text>
+              <text class="label" x="72" y="108">-A1 CPU</text>
+              <text class="label" x="76" y="168">DI</text>
+              <text class="label" x="124" y="168">DO</text>
+              <text class="label" x="72" y="228">-X1</text>
+              <circle cx="228" cy="88" r="9" fill="none" stroke="#4a5560" stroke-width="0.7"/>
+              <text class="label" x="238" y="86" fill="#4a5560">A</text>
             </svg>
           </div>
         </div>
