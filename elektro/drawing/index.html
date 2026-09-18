@@ -1,0 +1,163 @@
+<!DOCTYPE html>
+<html lang="sk">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Elektro · Technical Drawing | thedesigns.org</title>
+  <meta name="description" content="Elektroplánovanie, Schaltschrankbau, Maschinenverdrahtung — technický výkres ako engineering workspace.">
+  <link rel="canonical" href="https://thedesigns.org/elektro/drawing/">
+  <link rel="icon" href="/icon.svg" type="image/svg+xml">
+  <link href="https://fonts.googleapis.com/css2?family=Barlow:wght@400;500;600;700&family=IBM+Plex+Mono:wght@500;600&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="../css/workspace.css">
+</head>
+<body class="world-drawing">
+  <header class="app-bar">
+    <a class="brand" href="../"><b>thedesigns.org</b><span data-i18n="brandSub">Engineering Workspace</span></a>
+    <nav class="world-nav">
+      <a href="../" data-i18n="navHome">Workspace</a>
+      <a href="./" aria-current="page" data-i18n="navDraw">Elektro</a>
+      <a href="../cad/" data-i18n="navCad">Mechanika</a>
+      <a href="../plc/" data-i18n="navPlc">PLC</a>
+      <a href="../commissioning/" data-i18n="navComm">Commissioning</a>
+      <a href="../service/" data-i18n="navSvc">Service</a>
+      <a href="../referencie/" data-i18n="navRef">Referencie</a>
+      <a href="../kontakt/" data-i18n="navKontakt">Kontakt</a>
+    </nav>
+    <div class="lang">
+      <button type="button" data-lang="sk" aria-pressed="true">SK</button>
+      <button type="button" data-lang="de">DE</button>
+      <button type="button" data-lang="en">EN</button>
+    </div>
+  </header>
+
+  <div class="drawing-stage">
+    <div class="drawing-monitor">
+      <div class="drawing-chrome">
+        <span>VIEWPORT · SHEET 1/2 · SCALE 1:10</span>
+        <span>DWG-EL-2401-A · REV C</span>
+      </div>
+      <div class="drawing-sheet">
+        <div class="drawing-grid" aria-hidden="true"></div>
+        <div class="drawing-border" aria-hidden="true"></div>
+        <div class="drawing-coords"><span>A ··· B ··· C ··· D</span><span>1 — 2 — 3 — 4</span></div>
+        <div class="drawing-body">
+          <div class="drawing-copy fade-up" style="animation-delay:.2s">
+            <h2 data-i18n="dEy">Electrical engineering</h2>
+            <h1 data-i18n="dH">Technický výkres na monitore.</h1>
+            <p class="lead" data-i18n="dL">Schaltschrankbau, Elektroplanung a Maschinenverdrahtung — dokumentácia s reálnymi konvenciami: kóty, title block, referencie komponentov.</p>
+            <h2 data-i18n="dS1">Schaltschrankbau</h2>
+            <ul>
+              <li data-i18n="dS1a">Rozloženie polí, DIN lišty, svorkovnice</li>
+              <li data-i18n="dS1b">Napájacie a riadiace okruhy</li>
+              <li data-i18n="dS1c">EN 60204-1 · označenie vodičov</li>
+            </ul>
+            <h2 data-i18n="dS2">Elektroplanung</h2>
+            <ul>
+              <li data-i18n="dS2a">Jednopólové a viacpólové schémy</li>
+              <li data-i18n="dS2b">I/O zoznamy, káblové zoznamy</li>
+              <li data-i18n="dS2c">EPLAN P8 / redlining na stavbe</li>
+            </ul>
+            <h2 data-i18n="dS3">Maschinenverdrahtung</h2>
+            <ul>
+              <li data-i18n="dS3a">Trasy káblov, senzory, pohony</li>
+              <li data-i18n="dS3b">Loop check · I/O test</li>
+            </ul>
+            <div class="cta-row">
+              <a class="btn btn-solid" href="../cad/" data-i18n="dNext">Ďalej: 3D CAD</a>
+              <a class="btn" href="../kontakt/" data-i18n="navKontakt">Kontakt</a>
+            </div>
+          </div>
+          <div>
+            <svg class="schematic" viewBox="0 0 320 360" role="img" aria-label="Cabinet schematic">
+              <defs>
+                <marker id="a2" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="5" markerHeight="5" orient="auto"><path d="M0 1 L9 5 L0 9 Z" fill="#2a5f7a"/></marker>
+              </defs>
+              <!-- construction -->
+              <line class="ghost draw-in" x1="20" y1="20" x2="300" y2="20"/>
+              <line class="ghost draw-in" x1="20" y1="20" x2="20" y2="300"/>
+              <!-- cabinet outline -->
+              <rect class="comp draw-in" x="50" y="40" width="160" height="240" style="animation-delay:.15s"/>
+              <line class="wire draw-in" x1="50" y1="100" x2="210" y2="100" style="animation-delay:.3s"/>
+              <line class="wire draw-in" x1="50" y1="160" x2="210" y2="160" style="animation-delay:.35s"/>
+              <line class="wire draw-in" x1="50" y1="220" x2="210" y2="220" style="animation-delay:.4s"/>
+              <!-- DIN modules -->
+              <rect class="comp draw-in" x="70" y="55" width="50" height="35" style="animation-delay:.45s"/>
+              <rect class="comp draw-in" x="130" y="55" width="50" height="35" style="animation-delay:.5s"/>
+              <rect class="comp draw-in" x="70" y="115" width="120" height="30" style="animation-delay:.55s"/>
+              <rect class="comp draw-in" x="70" y="175" width="40" height="30" style="animation-delay:.6s"/>
+              <rect class="comp draw-in" x="120" y="175" width="40" height="30" style="animation-delay:.65s"/>
+              <rect class="comp draw-in" x="70" y="235" width="120" height="28" style="animation-delay:.7s"/>
+              <!-- motor symbol outside -->
+              <circle class="comp draw-in" cx="270" cy="130" r="28" style="animation-delay:.75s"/>
+              <text class="label" x="258" y="134">M1</text>
+              <line class="wire draw-in" x1="210" y1="130" x2="242" y2="130" style="animation-delay:.8s"/>
+              <!-- dimensions -->
+              <line class="dim" x1="50" y1="300" x2="210" y2="300" marker-end="url(#a2)" marker-start="url(#a2)"/>
+              <text class="dim-text" x="110" y="315">600 mm</text>
+              <line class="dim" x1="40" y1="40" x2="40" y2="280" marker-end="url(#a2)" marker-start="url(#a2)"/>
+              <text class="dim-text" x="8" y="165" transform="rotate(-90 8 165)">1800</text>
+              <text class="label" x="70" y="48">-Q1</text>
+              <text class="label" x="130" y="48">-K1</text>
+              <text class="label" x="70" y="108">PLC · CPU</text>
+              <text class="label" x="70" y="168">DI</text>
+              <text class="label" x="120" y="168">DO</text>
+              <text class="label" x="70" y="228">X1 TERMINAL</text>
+              <text class="label" x="230" y="90">DETAIL A</text>
+              <circle cx="230" cy="90" r="10" fill="none" stroke="#2a5f7a" stroke-width="0.8"/>
+            </svg>
+          </div>
+        </div>
+        <div class="title-block fade-up" style="animation-delay:.5s">
+          <table>
+            <tr><td colspan="2" class="tb-title" data-i18n="dTb">SCHALTSCHRANK · LINE A</td></tr>
+            <tr><td>DWG No.</td><td>EL-2401-A</td></tr>
+            <tr><td>Rev</td><td>C · 2026-03-12</td></tr>
+            <tr><td>Scale</td><td>1:10</td></tr>
+            <tr><td>Sheet</td><td>1 / 2</td></tr>
+            <tr><td>Material</td><td>Rittal VX25 / Cu</td></tr>
+            <tr><td>Drawn</td><td>thedesigns.org</td></tr>
+          </table>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <footer class="app-foot">
+    <span data-i18n="foot">© 2026 thedesigns.org — digitálny engineering workspace</span>
+    <a href="../">Workspace</a>
+  </footer>
+
+  <script>
+    window.WS_PAGE_I18N = {
+      sk: {
+        dEy: "Electrical engineering",
+        dH: "Technický výkres na monitore.",
+        dL: "Schaltschrankbau, Elektroplanung a Maschinenverdrahtung — dokumentácia s reálnymi konvenciami: kóty, title block, referencie komponentov.",
+        dS1: "Schaltschrankbau", dS1a: "Rozloženie polí, DIN lišty, svorkovnice", dS1b: "Napájacie a riadiace okruhy", dS1c: "EN 60204-1 · označenie vodičov",
+        dS2: "Elektroplanung", dS2a: "Jednopólové a viacpólové schémy", dS2b: "I/O zoznamy, káblové zoznamy", dS2c: "EPLAN P8 / redlining na stavbe",
+        dS3: "Maschinenverdrahtung", dS3a: "Trasy káblov, senzory, pohony", dS3b: "Loop check · I/O test",
+        dNext: "Ďalej: 3D CAD", dTb: "SCHALTSCHRANK · LINE A"
+      },
+      de: {
+        dEy: "Elektrotechnik",
+        dH: "Technische Zeichnung auf dem Monitor.",
+        dL: "Schaltschrankbau, Elektroplanung und Maschinenverdrahtung — Dokumentation mit echten Konventionen: Maße, Schriftfeld, Bauteilreferenzen.",
+        dS1: "Schaltschrankbau", dS1a: "Feldaufteilung, Hutschienen, Klemmen", dS1b: "Leistungs- und Steuerstromkreise", dS1c: "EN 60204-1 · Aderkennzeichnung",
+        dS2: "Elektroplanung", dS2a: "Ein- und mehrpolige Schemas", dS2b: "I/O-Listen, Kabellisten", dS2c: "EPLAN P8 / Redlining vor Ort",
+        dS3: "Maschinenverdrahtung", dS3a: "Leitungswege, Sensoren, Antriebe", dS3b: "Loop-Check · I/O-Test",
+        dNext: "Weiter: 3D-CAD", dTb: "SCHALTSCHRANK · LINE A"
+      },
+      en: {
+        dEy: "Electrical engineering",
+        dH: "A technical drawing on the monitor.",
+        dL: "Cabinet build, electrical planning and machine wiring — documentation with real conventions: dimensions, title block, component refs.",
+        dS1: "Cabinet construction", dS1a: "Bay layout, DIN rails, terminals", dS1b: "Power and control circuits", dS1c: "EN 60204-1 · wire marking",
+        dS2: "Electrical planning", dS2a: "Single- and multi-line diagrams", dS2b: "I/O lists, cable lists", dS2c: "EPLAN P8 / on-site redlining",
+        dS3: "Machine wiring", dS3a: "Cable routes, sensors, drives", dS3b: "Loop check · I/O test",
+        dNext: "Next: 3D CAD", dTb: "CABINET · LINE A"
+      }
+    };
+  </script>
+  <script src="../js/workspace.js" defer></script>
+</body>
+</html>
