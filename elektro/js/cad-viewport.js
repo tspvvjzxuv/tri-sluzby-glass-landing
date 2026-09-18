@@ -250,11 +250,17 @@
     return { setExplode, setHighlight, setRunning: (v) => { running = v; }, resize };
   }
 
+  const _queue = [];
+  let _loading = false;
   function loadThree(cb) {
     if (window.THREE) return cb();
+    _queue.push(cb);
+    if (_loading) return;
+    _loading = true;
     const s = document.createElement("script");
     s.src = "https://unpkg.com/three@0.160.0/build/three.min.js";
-    s.onload = cb;
+    s.onload = () => { _queue.splice(0).forEach((fn) => fn()); };
+    s.onerror = () => { _loading = false; };
     document.head.appendChild(s);
   }
 
