@@ -267,7 +267,7 @@ h2 {
   display: grid;
   grid-template-columns: 1.2fr 0.8fr;
   gap: 16px;
-  padding: 40px 24px 110px;
+  padding: 40px 24px 150px;
 }
 .drawing-copy h1 { color: var(--pen); }
 .drawing-copy .lead { color: var(--pen-dim); }
