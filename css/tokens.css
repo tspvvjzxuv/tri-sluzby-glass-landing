@@ -21,6 +21,7 @@
   --font-body: "DM Sans", "Segoe UI", system-ui, sans-serif;
   --font-ever-headline: "Fraunces", Georgia, serif;
   --font-ever-body: "Outfit", system-ui, sans-serif;
-  --font-auto-body: Inter, system-ui, sans-serif;
-  --font-auto-mono: "JetBrains Mono", ui-monospace, monospace;
+  --font-auto-display: "Space Grotesk", system-ui, sans-serif;
+  --font-auto-body: "Source Sans 3", "Segoe UI", system-ui, sans-serif;
+  --font-auto-mono: "IBM Plex Mono", ui-monospace, monospace;
 }

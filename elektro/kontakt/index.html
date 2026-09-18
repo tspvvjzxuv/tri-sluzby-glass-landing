@@ -1,54 +1,88 @@
 <!DOCTYPE html>
-<html lang="sk">
+<html lang="de">
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Kontakt | Engineering Workspace</title>
-  <meta name="description" content="Kapacitný brief — PLC programátori a priemyselní elektrikári. hello@thedesigns.org">
+  <title>Kontakt | Voltwerk</title>
+  <meta name="description" content="Kontaktieren Sie Voltwerk — Projektanfragen innerhalb von 24 Stunden.">
   <link rel="canonical" href="https://thedesigns.org/elektro/kontakt/">
   <link rel="icon" href="/icon.svg" type="image/svg+xml">
-  <link href="https://fonts.googleapis.com/css2?family=Barlow:wght@400;500;600;700&family=IBM+Plex+Mono:wght@500;600&display=swap" rel="stylesheet">
-  <link rel="stylesheet" href="../css/workspace.css">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Mono:wght@500;600&family=Source+Sans+3:wght@400;600&family=Space+Grotesk:wght@500;600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="../css/site.css">
 </head>
 <body>
-  <header class="app-bar">
-    <a class="brand" href="../"><b>thedesigns.org</b><span data-i18n="brandSub">Engineering Workspace</span></a>
-    <nav class="world-nav">
-      <a href="../" data-i18n="navHome">Workspace</a>
-      <a href="../drawing/" data-i18n="navDraw">Elektro</a>
-      <a href="../cad/" data-i18n="navCad">Mechanika</a>
-      <a href="../plc/" data-i18n="navPlc">PLC</a>
-      <a href="../commissioning/" data-i18n="navComm">Commissioning</a>
-      <a href="../service/" data-i18n="navSvc">Service</a>
-      <a href="../referencie/" data-i18n="navRef">Referencie</a>
-      <a href="./" aria-current="page" data-i18n="navKontakt">Kontakt</a>
-    </nav>
-    <div class="lang">
-      <button type="button" data-lang="sk" aria-pressed="true">SK</button>
-      <button type="button" data-lang="de">DE</button>
-      <button type="button" data-lang="en">EN</button>
+  <header class="site-header">
+    <div class="inner">
+      <a class="brand" href="../">
+        <strong>Voltwerk</strong>
+        <span data-i18n="brandSub">Automatisierungselektrik &amp; Mechanik</span>
+      </a>
+      <button class="nav-toggle" type="button" aria-label="Menu">☰</button>
+      <nav class="nav-main" aria-label="Main">
+        <a href="../leistungen/"  data-i18n="navLeistungen">Leistungen</a>
+        <a href="../referenzen/"  data-i18n="navReferenzen">Referenzen</a>
+        <a href="../unternehmen/"  data-i18n="navUnternehmen">Unternehmen</a>
+        <a class="nav-cta" href="../kontakt/" aria-current="page" data-i18n="navCta">Projekt anfragen</a>
+      </nav>
+      <div class="lang" role="group" aria-label="Language">
+        <button type="button" data-lang="de" aria-pressed="true">DE</button>
+        <button type="button" data-lang="sk" aria-pressed="false">SK</button>
+        <button type="button" data-lang="en" aria-pressed="false">EN</button>
+      </div>
     </div>
   </header>
+  <section class="page-hero">
+    <div class="container">
+      <h1 data-i18n="koH1">Kontakt</h1>
+      <p class="lead" data-i18n="koLead">Projekt oder Kapazitätsanfrage — wir melden uns innerhalb von 24 Stunden.</p>
+    </div>
+  </section>
+  <section class="section">
+    <div class="container contact-grid">
+      <dl class="contact-list reveal">
+        <div>
+          <dt data-i18n="koMailL">E-Mail</dt>
+          <dd><a href="mailto:hello@thedesigns.org">hello@thedesigns.org</a></dd>
+        </div>
+        <div>
+          <dt data-i18n="koPhoneL">Telefon</dt>
+          <dd data-i18n="koPhone">Auf Anfrage</dd>
+        </div>
+        <div>
+          <dt data-i18n="koAddrL">Adresse</dt>
+          <dd data-i18n="koAddr">thedesigns.org · Voltwerk · EU-Einsatz DE / CZ / SK</dd>
+        </div>
+      </dl>
+      <form class="form reveal" id="project-form">
+        <label><span data-i18n="koFormName">Name</span><input name="name" required autocomplete="name"></label>
+        <label><span data-i18n="koFormCompany">Unternehmen</span><input name="company" autocomplete="organization"></label>
+        <label><span data-i18n="koFormMail">E-Mail</span><input name="email" type="email" required autocomplete="email"></label>
+        <label><span data-i18n="koFormTopic">Thema</span>
+          <select name="topic">
+            <option value="Neuprojekt" data-i18n="koFormTopic1">Neuprojekt</option>
+            <option value="Retrofit / Service" data-i18n="koFormTopic2">Retrofit / Service</option>
+            <option value="Kapazität" data-i18n="koFormTopic3">Kapazität</option>
+          </select>
+        </label>
+        <label><span data-i18n="koFormMsg">Kurzbeschreibung</span><textarea name="message" required></textarea></label>
+        <button class="btn btn-solid" type="submit" data-i18n="koFormSubmit">Anfrage per E-Mail senden</button>
+        <p class="form-note" data-i18n="koFormNote">Öffnet Ihr E-Mail-Programm mit vorausgefüllter Nachricht an hello@thedesigns.org.</p>
+      </form>
+    </div>
+  </section>
 
-  <main class="page-plain wrap">
-    <h2 data-i18n="navKontakt">Kontakt</h2>
-    <h1 data-i18n="kH">Kapacitný brief.</h1>
-    <p class="lead" data-i18n="kL">Počet ľudí, rola (PLC / elektrikár), platforma, lokalita (DE/CZ/SK), termín, A1/SCC. Odpoveď do 24 h.</p>
-    <p style="margin-top:20px"><a class="btn btn-solid" href="mailto:hello@thedesigns.org?subject=Capacity%20brief">hello@thedesigns.org</a></p>
-    <p class="mono" style="margin-top:24px;color:var(--ink-dim);font-size:0.8rem">thedesigns.org/elektro · EU deployment</p>
-  </main>
-
-  <footer class="app-foot">
-    <span data-i18n="foot">© 2026 thedesigns.org — digitálny engineering workspace</span>
-    <a href="../impressum/">Impressum</a>
+  <footer class="site-footer">
+    <div class="container inner">
+      <p data-i18n="footerCopy">Voltwerk · Teil von thedesigns.org</p>
+      <nav>
+        <a href="../../" data-i18n="footerHub">thedesigns.org</a>
+        <a href="../impressum/" data-i18n="footerImpressum">Impressum</a>
+        <a href="../datenschutz/" data-i18n="footerPrivacy">Datenschutz</a>
+      </nav>
+    </div>
   </footer>
-  <script>
-    window.WS_PAGE_I18N = {
-      sk: { kH: "Kapacitný brief.", kL: "Počet ľudí, rola (PLC / elektrikár), platforma, lokalita (DE/CZ/SK), termín, A1/SCC. Odpoveď do 24 h." },
-      de: { kH: "Kapazitäts-Briefing.", kL: "Anzahl, Rolle (SPS / Elektriker), Plattform, Ort (DE/CZ/SK), Termin, A1/SCC. Antwort in 24 h." },
-      en: { kH: "Capacity brief.", kL: "Headcount, role (PLC / electrician), platform, site (DE/CZ/SK), date, A1/SCC. Reply within 24 h." }
-    };
-  </script>
-  <script src="../js/workspace.js" defer></script>
+  <script src="../js/i18n.js"></script>
 </body>
 </html>

@@ -3,9 +3,9 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Impressum | Voltwerk</title>
-  <meta name="description" content="Impressum Voltwerk / thedesigns.org">
-  <link rel="canonical" href="https://thedesigns.org/elektro/impressum/">
+  <title>Referenzen | Voltwerk</title>
+  <meta name="description" content="Voltwerk Referenzen — anonymisierte Automatisierungsprojekte in Automotive, Fördertechnik und Food.">
+  <link rel="canonical" href="https://thedesigns.org/elektro/referenzen/">
   <link rel="icon" href="/icon.svg" type="image/svg+xml">
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -22,7 +22,7 @@
       <button class="nav-toggle" type="button" aria-label="Menu">☰</button>
       <nav class="nav-main" aria-label="Main">
         <a href="../leistungen/"  data-i18n="navLeistungen">Leistungen</a>
-        <a href="../referenzen/"  data-i18n="navReferenzen">Referenzen</a>
+        <a href="../referenzen/" aria-current="page" data-i18n="navReferenzen">Referenzen</a>
         <a href="../unternehmen/"  data-i18n="navUnternehmen">Unternehmen</a>
         <a class="nav-cta" href="../kontakt/"  data-i18n="navCta">Projekt anfragen</a>
       </nav>
@@ -33,12 +33,22 @@
       </div>
     </div>
   </header>
-  <section class="legal container">
-    <h1 data-i18n="imH1">Impressum</h1>
-    <p><strong>Voltwerk</strong> · Teil von thedesigns.org</p>
-    <p>E-Mail: <a href="mailto:hello@thedesigns.org">hello@thedesigns.org</a></p>
-    <p>Web: <a href="https://thedesigns.org/elektro/">https://thedesigns.org/elektro/</a></p>
-    <p>Angaben zu Anschrift, Vertretung und Register werden ergänzt, sobald die rechtliche Einheit finalisiert ist.</p>
+  <section class="page-hero">
+    <div class="container">
+      <h1 data-i18n="refH1">Referenzen</h1>
+      <p class="lead" data-i18n="refLead">Projekttypen statt Logo-Wände — was wir geliefert haben.</p>
+    </div>
+  </section>
+  <section class="section">
+    <div class="container">
+      <p class="reveal" style="color:var(--ink-muted);margin-bottom:1.5rem" data-i18n="refNote">Kundennamen unter NDA. Branchen und Ergebnisse sind freigegeben.</p>
+      <div class="case-list reveal">
+        <article class="case-item"><div class="sector" data-i18n="case1s">Automotive</div><div><h3 data-i18n="case1t">Schaltschrank + SPS für Montagezelle</h3><p data-i18n="case1p">Komplette Elektroplanung, Schrankfertigung und TIA-Software inkl. Safety bis Abnahme.</p></div></article>
+        <article class="case-item"><div class="sector" data-i18n="case2s">Fördertechnik</div><div><h3 data-i18n="case2t">Mechanik-Integration und I/O-Inbetriebnahme</h3><p data-i18n="case2p">Gestellanpassung, Sensorik, Antriebsparametrierung und Loop-Check vor Ort.</p></div></article>
+        <article class="case-item"><div class="sector" data-i18n="case3s">Food</div><div><h3 data-i18n="case3t">Retrofit Steuerung einer Verpackungslinie</h3><p data-i18n="case3p">SPS-Migration, HMI-Neuanlage und dokumentierte Wiederinbetriebnahme ohne langen Stillstand.</p></div></article>
+      </div>
+      <p style="margin-top:2rem"><a class="btn btn-solid" href="../kontakt/" data-i18n="navCta">Projekt anfragen</a></p>
+    </div>
   </section>
 
   <footer class="site-footer">
