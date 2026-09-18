@@ -1,235 +1,159 @@
 <!DOCTYPE html>
-<html lang="sk">
+<html lang="de">
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Engineering Workspace | thedesigns.org</title>
-  <meta name="description" content="Digitálny engineering workspace: technický výkres → 3D CAD → PLC → commissioning. Staff augmentation pre priemyselnú automatizáciu.">
+  <title>Voltwerk | Automatisierungselektrik & Mechanik</title>
+  <meta name="description" content="Voltwerk — Automatisierungselektrik und Mechanik für Maschinen und Anlagen. Elektroplanung, Schaltschrankbau, SPS, Inbetriebnahme.">
   <link rel="canonical" href="https://thedesigns.org/elektro/">
   <link rel="icon" href="/icon.svg" type="image/svg+xml">
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Barlow:wght@400;500;600;700&family=IBM+Plex+Mono:wght@500;600&display=swap" rel="stylesheet">
-  <link rel="stylesheet" href="css/workspace.css">
+  <link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Mono:wght@500;600&family=Source+Sans+3:wght@400;600&family=Space+Grotesk:wght@500;600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="./css/site.css">
 </head>
 <body>
-  <header class="app-bar">
-    <a class="brand" href="./">
-      <b>thedesigns.org</b>
-      <span data-i18n="brandSub">Engineering Workspace</span>
-    </a>
-    <nav class="world-nav" aria-label="Worlds">
-      <a href="./" aria-current="page" data-i18n="navHome">Workspace</a>
-      <a href="drawing/" data-i18n="navDraw">Elektro</a>
-      <a href="cad/" data-i18n="navCad">Mechanika</a>
-      <a href="plc/" data-i18n="navPlc">PLC</a>
-      <a href="commissioning/" data-i18n="navComm">Commissioning</a>
-      <a href="service/" data-i18n="navSvc">Service</a>
-      <a href="referencie/" data-i18n="navRef">Referencie</a>
-      <a href="kontakt/" data-i18n="navKontakt">Kontakt</a>
-    </nav>
-    <span class="status-pill"><i></i><span data-i18n="homeHub">Online</span></span>
-    <div class="lang">
-      <button type="button" data-lang="sk" aria-pressed="true">SK</button>
-      <button type="button" data-lang="de">DE</button>
-      <button type="button" data-lang="en">EN</button>
+  <header class="site-header">
+    <div class="inner">
+      <a class="brand" href="./">
+        <strong>Voltwerk</strong>
+        <span data-i18n="brandSub">Automatisierungselektrik &amp; Mechanik</span>
+      </a>
+      <button class="nav-toggle" type="button" aria-label="Menu">☰</button>
+      <nav class="nav-main" aria-label="Main">
+        <a href="./leistungen/"  data-i18n="navLeistungen">Leistungen</a>
+        <a href="./referenzen/"  data-i18n="navReferenzen">Referenzen</a>
+        <a href="./unternehmen/"  data-i18n="navUnternehmen">Unternehmen</a>
+        <a class="nav-cta" href="./kontakt/"  data-i18n="navCta">Projekt anfragen</a>
+      </nav>
+      <div class="lang" role="group" aria-label="Language">
+        <button type="button" data-lang="de" aria-pressed="true">DE</button>
+        <button type="button" data-lang="sk" aria-pressed="false">SK</button>
+        <button type="button" data-lang="en" aria-pressed="false">EN</button>
+      </div>
     </div>
   </header>
-
-  <nav class="journey-progress" aria-label="Journey">
-    <a href="#s0" data-step="0" class="is-active" title="0"></a>
-    <a href="#s1" data-step="1" title="1"></a>
-    <a href="#s2" data-step="2" title="2"></a>
-    <a href="#s3" data-step="3" title="3"></a>
-    <a href="#s4" data-step="4" title="4"></a>
-    <a href="#s5" data-step="5" title="5"></a>
-    <a href="#s6" data-step="6" title="6"></a>
-  </nav>
-
-  <main class="journey">
-    <section class="journey-step" id="s0" data-step="0">
-      <div class="inner">
-        <div>
-          <p class="step-tag" data-i18n="j0t">STEP 00 · WORKSPACE</p>
-          <h1 data-i18n="j0h">Vstúpte do digitálneho engineering workspace.</h1>
-          <p class="lead" data-i18n="j0p">Nie firemný brochure web. Prostredie, v ktorom sa pohybujete medzi výkresom, 3D zostavou a PLC projektom — rovnako ako na skutočnej zákazke.</p>
-          <div class="cta-row">
-            <a class="btn btn-solid" href="#s1" data-i18n="j0c">Spustiť cestu</a>
-            <a class="btn" href="mailto:hello@thedesigns.org?subject=Capacity%20brief" data-i18n="jCtaMail">Kapacitný brief</a>
-          </div>
-        </div>
-        <div class="journey-visual" style="display:grid;place-items:center;padding:28px;background:#1a1c1f">
-          <svg viewBox="0 0 420 250" width="100%" height="220" aria-hidden="true">
-            <rect x="1" y="1" width="418" height="248" fill="none" stroke="#2e333a" stroke-width="1"/>
-            <text x="20" y="28" fill="#6a727c" font-family="IBM Plex Mono,monospace" font-size="9" letter-spacing="1.5">PROJECT / LINE_A · REV C</text>
-            <line x1="20" y1="40" x2="400" y2="40" stroke="#2e333a" stroke-width="0.5"/>
-            <!-- abstract machine silhouette -->
-            <rect x="48" y="90" width="200" height="14" fill="none" stroke="#8a929a" stroke-width="1.2"/>
-            <rect x="48" y="110" width="8" height="70" fill="none" stroke="#5c636c" stroke-width="1"/>
-            <rect x="240" y="110" width="8" height="70" fill="none" stroke="#5c636c" stroke-width="1"/>
-            <rect x="48" y="178" width="200" height="6" fill="none" stroke="#5c636c" stroke-width="1"/>
-            <circle cx="280" cy="120" r="22" fill="none" stroke="#8a929a" stroke-width="1.2"/>
-            <circle cx="280" cy="120" r="8" fill="none" stroke="#5c636c" stroke-width="1"/>
-            <rect x="310" y="70" width="48" height="100" fill="none" stroke="#a8aeb6" stroke-width="1.2"/>
-            <rect x="316" y="78" width="36" height="84" fill="none" stroke="#6a727c" stroke-width="0.8"/>
-            <text x="20" y="230" fill="#5a626c" font-family="IBM Plex Mono,monospace" font-size="9" letter-spacing="2">DWG  →  ASM  →  PLC  →  RUN</text>
-          </svg>
-        </div>
+  <section class="hero">
+    <div class="hero-media" aria-hidden="true">
+      <img src="./images/factory.jpg" alt="" width="1600" height="1000">
+    </div>
+    <div class="hero-content">
+      <p class="hero-brand" data-i18n="homeBrand">Voltwerk</p>
+      <h1 data-i18n="homeH1">Automatisierungselektrik und Mechanik für Maschinen und Anlagen.</h1>
+      <p class="lead" data-i18n="homeLead">Von der Elektroplanung über Schaltschrank und SPS bis zur mechanischen Integration und Inbetriebnahme — aus einer Hand.</p>
+      <div class="cta-row">
+        <a class="btn btn-solid" href="./kontakt/" data-i18n="homeCta1">Projekt anfragen</a>
+        <a class="btn btn-ghost" href="./leistungen/" data-i18n="homeCta2">Leistungen ansehen</a>
       </div>
-    </section>
+    </div>
+  </section>
 
-    <section class="journey-step world-drawing" id="s1" data-step="1" style="background:transparent">
-      <div class="inner">
-        <div>
-          <p class="step-tag" data-i18n="j1t">STEP 01 · PLAN</p>
-          <h1 data-i18n="j1h">Technický výkres. Elektroplánovanie.</h1>
-          <p class="lead" data-i18n="j1p">Schaltschrankbau, káblové trasy, I/O body — dokumentácia ako na monitore CAD/EPLAN, nie dekorácia.</p>
-          <div class="cta-row">
-            <a class="btn btn-solid" href="drawing/" data-i18n="j1c">Otvoriť výkres</a>
-          </div>
-        </div>
-        <div class="journey-visual" style="background:#e4e6e9;padding:16px">
-          <svg class="schematic" viewBox="0 0 420 260" aria-hidden="true">
-            <defs>
-              <marker id="arr" viewBox="0 0 10 10" refX="8" refY="5" markerWidth="4" markerHeight="4" orient="auto"><path d="M0 1.5 L9 5 L0 8.5 Z" fill="#4a5560"/></marker>
-            </defs>
-            <g stroke="#1a1c1f" fill="none" stroke-width="0.9">
-              <rect class="draw-in" x="36" y="48" width="64" height="96" style="animation-delay:.1s"/>
-              <line class="draw-in" x1="100" y1="78" x2="168" y2="78" style="animation-delay:.25s"/>
-              <rect class="draw-in" x="168" y="60" width="44" height="36" style="animation-delay:.35s"/>
-              <line class="draw-in" x1="212" y1="78" x2="280" y2="78" style="animation-delay:.5s"/>
-              <circle class="draw-in" cx="302" cy="78" r="18" style="animation-delay:.65s"/>
-              <circle cx="302" cy="78" r="6" stroke="#1a1c1f" stroke-width="0.7"/>
-              <line class="draw-in" x1="100" y1="118" x2="168" y2="150" style="animation-delay:.4s"/>
-              <rect class="draw-in" x="168" y="138" width="84" height="26" style="animation-delay:.55s"/>
-            </g>
-            <g class="dim">
-              <line x1="36" y1="164" x2="100" y2="164" marker-end="url(#arr)" marker-start="url(#arr)"/>
-              <text class="dim-text" x="55" y="178">600</text>
-            </g>
-            <text class="label" x="42" y="40">-A1</text>
-            <text class="label" x="172" y="54">-K1</text>
-            <text class="label" x="292" y="48">-M1</text>
-            <text class="label" x="172" y="130">-X1</text>
-          </svg>
-        </div>
+  <section class="section">
+    <div class="container">
+      <div class="section-head reveal">
+        <p class="eyebrow" data-i18n="svcEyebrow">Leistungen</p>
+        <h2 data-i18n="svcH2">Alles, was eine Anlage braucht — elektrisch und mechanisch.</h2>
+        <p data-i18n="svcP">Klare Gewerke, eine Projektleitung, dokumentierte Übergabe.</p>
       </div>
-    </section>
-
-    <section class="journey-step" id="s2" data-step="2" data-journey-cad>
-      <div class="inner">
-        <div>
-          <p class="step-tag" data-i18n="j2t">STEP 02 · ENGINEER</p>
-          <h1 data-i18n="j2h">3D CAD zostava stroja.</h1>
-          <p class="lead" data-i18n="j2p">Dopravník, pohon, snímače, rám — priestorový model s hierarchiou dielov a meraním.</p>
-          <p class="mono" style="margin-top:12px;font-size:0.75rem;color:var(--ink-dim)">PART <span data-cad-part>—</span></p>
-          <div class="cta-row">
-            <a class="btn btn-solid" href="cad/" data-i18n="j2c">Otvoriť CAD</a>
-          </div>
-        </div>
-        <div class="journey-visual">
-          <canvas class="cad-canvas" id="cad-home-a"></canvas>
-        </div>
+      <div class="service-grid reveal">
+        <a href="./elektroplanung/"><div class="num" data-i18n="svc01n">01</div><h3 data-i18n="svc01t">Elektroplanung</h3><p data-i18n="svc01p">EPLAN P8, Stromlaufpläne, Klemmen- und Kabellisten, EN 60204-1.</p></a>
+        <a href="./schaltschrankbau/"><div class="num" data-i18n="svc02n">02</div><h3 data-i18n="svc02t">Schaltschrankbau</h3><p data-i18n="svc02p">Aufbau, Verdrahtung und Prüfung nach EN 61439 — betriebsbereit geliefert.</p></a>
+        <a href="./sps/"><div class="num" data-i18n="svc03n">03</div><h3 data-i18n="svc03t">SPS &amp; HMI</h3><p data-i18n="svc03p">TIA Portal, TwinCAT, Rockwell — Steuerungslogik, Safety, Visualisierung.</p></a>
+        <a href="./mechanik/"><div class="num" data-i18n="svc04n">04</div><h3 data-i18n="svc04t">Mechanik</h3><p data-i18n="svc04p">Konstruktion und Integration von Gestellen, Förderern und Anbauteilen.</p></a>
+        <a href="./inbetriebnahme/"><div class="num" data-i18n="svc05n">05</div><h3 data-i18n="svc05t">Inbetriebnahme</h3><p data-i18n="svc05p">I/O-Tests, Antriebe, HMI, Abnahme — vor Ort in DE und EU.</p></a>
+        <a href="./service/"><div class="num" data-i18n="svc06n">06</div><h3 data-i18n="svc06t">Service &amp; Retrofit</h3><p data-i18n="svc06p">Störung, Modernisierung, SPS-Migration und Ersatzteile.</p></a>
       </div>
-    </section>
+    </div>
+  </section>
 
-    <section class="journey-step" id="s3" data-step="3">
-      <div class="inner">
-        <div>
-          <p class="step-tag" data-i18n="j3t">STEP 03 · BUILD</p>
-          <h1 data-i18n="j3h">Zostava sa skladá.</h1>
-          <p class="lead" data-i18n="j3p">Komponenty sa spájajú do funkčného celku. Mechanika pripravená na elektro a automatizáciu.</p>
-        </div>
-        <div class="journey-visual">
-          <canvas class="cad-canvas" id="cad-home-b"></canvas>
-        </div>
+  <section class="section">
+    <div class="container">
+      <div class="section-head reveal">
+        <p class="eyebrow" data-i18n="procEyebrow">Ablauf</p>
+        <h2 data-i18n="procH2">So läuft ein Projekt.</h2>
+        <p data-i18n="procP">Transparent von der ersten Anfrage bis zur laufenden Anlage.</p>
       </div>
-    </section>
+      <ol class="process reveal">
+        <li><div class="step-n" data-i18n="proc1n">01 · Anfrage</div><h3 data-i18n="proc1t">Briefing</h3><p data-i18n="proc1p">Scope, Normen, Termin — Erstgespräch innerhalb von 24 Stunden.</p></li>
+        <li><div class="step-n" data-i18n="proc2n">02 · Planung</div><h3 data-i18n="proc2t">Engineering</h3><p data-i18n="proc2p">Elektro- und Mechanikkonzept, Angebot, Meilensteine.</p></li>
+        <li><div class="step-n" data-i18n="proc3n">03 · Umsetzung</div><h3 data-i18n="proc3t">Bau &amp; Software</h3><p data-i18n="proc3p">Schaltschrank, Verdrahtung, SPS, mechanische Integration.</p></li>
+        <li><div class="step-n" data-i18n="proc4n">04 · Übergang</div><h3 data-i18n="proc4t">Inbetriebnahme</h3><p data-i18n="proc4p">Tests, Dokumentation, Einweisung Ihres Teams.</p></li>
+      </ol>
+    </div>
+  </section>
 
-    <section class="journey-step" id="s4" data-step="4">
-      <div class="inner">
-        <div>
-          <p class="step-tag" data-i18n="j4t">STEP 04 · PROGRAM</p>
-          <h1 data-i18n="j4h">PLC logika. TIA workflow.</h1>
-          <p class="lead" data-i18n="j4p">Tagy, FBD, safety interlock, drive enable — jazyk automatizácie bez kopírovania Siemens UI.</p>
-          <div class="cta-row">
-            <a class="btn btn-solid" href="plc/" data-i18n="j4c">Otvoriť PLC</a>
-          </div>
+  <section class="section">
+    <div class="container split reveal">
+      <div>
+        <p class="eyebrow" data-i18n="whyEyebrow">Voltwerk</p>
+        <h2 data-i18n="whyH2">Schnittstellen reduzieren. Verfügbarkeit erhöhen.</h2>
+        <p data-i18n="whyP">Elektro und Mechanik in einem Team bedeutet weniger Reibung zwischen Zeichnung, Schrank und Linie — und eine Übergabe, die im Betrieb hält.</p>
+        <div class="norms">
+          <span data-i18n="norms1">EN 61439</span>
+          <span data-i18n="norms2">EN 60204-1</span>
+          <span data-i18n="norms3">EPLAN P8</span>
+          <span data-i18n="norms4">TIA / TwinCAT / Rockwell</span>
         </div>
-        <div class="journey-visual logic-board" style="min-height:auto">
-          <div class="fbd">
-            <div class="fbd-block"><div class="name">Safety_OK</div><div class="pin"><span>I0.0</span><b>1</b></div></div>
-            <div class="fbd-wire"></div>
-            <div class="fbd-block"><div class="name">Motor_Start</div><div class="pin"><span>I0.1</span><b>1</b></div></div>
-            <div class="fbd-wire"></div>
-            <div class="fbd-block"><div class="name">Drive_Enable</div><div class="pin"><span>Q0.0</span><b>1</b></div></div>
-            <div class="fbd-wire"></div>
-            <div class="fbd-block"><div class="name">Motor_Running</div><div class="pin"><span>Q0.1</span><b>1</b></div></div>
-          </div>
-        </div>
+        <p style="margin-top:1.5rem"><a class="btn btn-ghost" href="./unternehmen/" data-i18n="whyCta">Über Voltwerk</a></p>
       </div>
-    </section>
+      <img src="./images/control-cabinet-premium.jpg" alt="Schaltschrank Verdrahtung" width="900" height="600" loading="lazy">
+    </div>
+  </section>
 
-    <section class="journey-step" id="s5" data-step="5">
-      <div class="inner">
-        <div>
-          <p class="step-tag" data-i18n="j5t">STEP 05 · COMMISSION</p>
-          <h1 data-i18n="j5h">Signály ožívajú.</h1>
-          <p class="lead" data-i18n="j5p">Diagnostika, I/O stavy, HMI. Motor, senzory a bezpečnosť v online režime.</p>
-          <div class="cta-row">
-            <a class="btn btn-solid" href="commissioning/" data-i18n="j5c">Commissioning</a>
-          </div>
-        </div>
-        <div class="journey-visual" style="padding:20px">
-          <div class="sig-row"><i class="sig-led" data-sig="estop"></i> E-Stop circuit</div>
-          <div class="sig-row"><i class="sig-led" data-sig="safety"></i> Safety_OK</div>
-          <div class="sig-row"><i class="sig-led" data-sig="sensor_in"></i> Sensor_In</div>
-          <div class="sig-row"><i class="sig-led" data-sig="drive"></i> Drive_Enable</div>
-          <div class="sig-row"><i class="sig-led" data-sig="motor"></i> Motor_Running</div>
-          <div class="sig-row"><i class="sig-led" data-sig="sensor_out"></i> Sensor_Out</div>
-        </div>
+  <section class="section">
+    <div class="container">
+      <div class="section-head reveal">
+        <p class="eyebrow" data-i18n="indEyebrow">Branchen</p>
+        <h2 data-i18n="indH2">Wo wir eingesetzt werden.</h2>
+        <p data-i18n="indP">Maschinenbauer, Produzenten und Integratoren in DACH und EU.</p>
       </div>
-    </section>
-
-    <section class="journey-step" id="s6" data-step="6">
-      <div class="inner">
-        <div>
-          <p class="step-tag" data-i18n="j6t">STEP 06 · PRODUCTION</p>
-          <h1 data-i18n="j6h">Linka beží.</h1>
-          <p class="lead" data-i18n="j6p">Hotový stroj v prevádzke. Service a monitoring udržujú dostupnosť.</p>
-          <div class="cta-row">
-            <a class="btn btn-solid" href="service/" data-i18n="j6c">Service</a>
-            <a class="btn" href="referencie/" data-i18n="jCtaRef">Referencie DE</a>
-            <a class="btn" href="mailto:hello@thedesigns.org?subject=Capacity%20brief" data-i18n="jCtaMail">Kapacitný brief</a>
-          </div>
-        </div>
-        <div class="journey-visual">
-          <canvas class="cad-canvas" id="cad-home-c"></canvas>
-        </div>
+      <div class="industries reveal">
+        <span data-i18n="ind1">Maschinen- &amp; Anlagenbau</span>
+        <span data-i18n="ind2">Automobil &amp; Zulieferer</span>
+        <span data-i18n="ind3">Logistik &amp; Fördertechnik</span>
+        <span data-i18n="ind4">Food &amp; Beverage</span>
+        <span data-i18n="ind5">Verpackungstechnik</span>
+        <span data-i18n="ind6">Kunststoff &amp; Verfahren</span>
       </div>
-    </section>
-  </main>
+    </div>
+  </section>
 
-  <footer class="app-foot">
-    <span data-i18n="foot">© 2026 thedesigns.org — digitálny engineering workspace</span>
-    <span>
-      <a href="impressum/">Impressum</a> ·
-      <a href="ochrana-udajov/">Privacy</a> ·
-      <a href="../">Hub</a>
-    </span>
+  <section class="section">
+    <div class="container">
+      <div class="section-head reveal">
+        <p class="eyebrow" data-i18n="caseEyebrow">Referenzen</p>
+        <h2 data-i18n="caseH2">Ausgewählte Projekttypen.</h2>
+        <p data-i18n="caseP">Anonymisierte Fälle — Fokus auf Scope und Ergebnis, nicht auf Namenslisten.</p>
+      </div>
+      <div class="case-list reveal">
+        <article class="case-item"><div class="sector" data-i18n="case1s">Automotive</div><div><h3 data-i18n="case1t">Schaltschrank + SPS für Montagezelle</h3><p data-i18n="case1p">Komplette Elektroplanung, Schrankfertigung und TIA-Software inkl. Safety bis Abnahme.</p></div></article>
+        <article class="case-item"><div class="sector" data-i18n="case2s">Fördertechnik</div><div><h3 data-i18n="case2t">Mechanik-Integration und I/O-Inbetriebnahme</h3><p data-i18n="case2p">Gestellanpassung, Sensorik, Antriebsparametrierung und Loop-Check vor Ort.</p></div></article>
+        <article class="case-item"><div class="sector" data-i18n="case3s">Food</div><div><h3 data-i18n="case3t">Retrofit Steuerung einer Verpackungslinie</h3><p data-i18n="case3p">SPS-Migration, HMI-Neuanlage und dokumentierte Wiederinbetriebnahme ohne langen Stillstand.</p></div></article>
+      </div>
+      <p style="margin-top:1.5rem"><a class="btn btn-ghost" href="./referenzen/" data-i18n="caseCta">Alle Referenzen</a></p>
+    </div>
+  </section>
+
+  <section class="cta-band">
+    <div class="container inner reveal">
+      <div>
+        <h2 data-i18n="bandH2">Bereit für Ihr nächstes Automatisierungsprojekt?</h2>
+        <p data-i18n="bandP">Wir antworten innerhalb von 24 Stunden — unverbindlich.</p>
+      </div>
+      <a class="btn btn-solid" href="./kontakt/" data-i18n="bandCta">Projekt anfragen</a>
+    </div>
+  </section>
+
+  <footer class="site-footer">
+    <div class="container inner">
+      <p data-i18n="footerCopy">Voltwerk · Teil von thedesigns.org</p>
+      <nav>
+        <a href="../" data-i18n="footerHub">thedesigns.org</a>
+        <a href="./impressum/" data-i18n="footerImpressum">Impressum</a>
+        <a href="./datenschutz/" data-i18n="footerPrivacy">Datenschutz</a>
+      </nav>
+    </div>
   </footer>
-
-  <script src="js/vendor/three.min.js"></script>
-  <script src="js/workspace.js" defer></script>
-  <script src="js/cad-viewport.js" defer></script>
-  <script>
-    document.addEventListener("DOMContentLoaded", () => {
-      if (!window.CadViewport) return;
-      CadViewport.mount("#cad-home-a", { scrollCouple: true, mode: "explode", explode: 0 });
-      CadViewport.mount("#cad-home-b", { scrollCouple: true, mode: "build", explode: 1 });
-      CadViewport.mount("#cad-home-c", { running: true, explode: 0 });
-      document.querySelector(".world-drawing")?.classList.add("is-ready");
-    });
-  </script>
+  <script src="./js/i18n.js"></script>
 </body>
 </html>
