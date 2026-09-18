@@ -1,6 +1,6 @@
 /**
- * Lightweight CAD viewport — industrial conveyor assembly (Three.js).
- * Believable proportions: frame, belt, motor/gearbox, sensors, cabinet.
+ * Professional CAD viewport — industrial belt conveyor.
+ * Grey RAL-like materials, studio lighting, believable detailing.
  */
 (function () {
   "use strict";
@@ -9,135 +9,342 @@
     opts = opts || {};
     if (!window.THREE) return null;
     const THREE = window.THREE;
-    const reduced = window.matchMedia("(prefers-reduced-motion: reduce)").matches
-      || window.innerWidth < 700;
+    const reduced =
+      window.matchMedia("(prefers-reduced-motion: reduce)").matches ||
+      window.innerWidth < 720;
 
     const scene = new THREE.Scene();
-    scene.background = new THREE.Color(0x0b0c0e);
-    scene.fog = new THREE.Fog(0x0b0c0e, 8, 22);
+    scene.background = new THREE.Color(0x1a1c1f);
+    scene.fog = new THREE.Fog(0x1a1c1f, 11, 30);
 
-    const camera = new THREE.PerspectiveCamera(40, 1, 0.1, 100);
-    camera.position.set(4.2, 2.8, 5.2);
-    camera.lookAt(0, 0.6, 0);
+    const camera = new THREE.PerspectiveCamera(30, 1, 0.05, 80);
+    camera.position.set(5.6, 3.4, 6.4);
+    camera.lookAt(0, 0.5, 0);
 
-    const renderer = new THREE.WebGLRenderer({ canvas, antialias: !reduced, alpha: false });
-    renderer.setPixelRatio(Math.min(window.devicePixelRatio || 1, reduced ? 1 : 1.75));
-    renderer.outputColorSpace = THREE.SRGBColorSpace;
+    const renderer = new THREE.WebGLRenderer({
+      canvas,
+      antialias: true,
+      alpha: false,
+      powerPreference: "high-performance",
+    });
+    renderer.setPixelRatio(Math.min(window.devicePixelRatio || 1, reduced ? 1.25 : 2));
+    if ("outputColorSpace" in renderer) renderer.outputColorSpace = THREE.SRGBColorSpace;
+    renderer.toneMapping = THREE.NoToneMapping;
+    renderer.shadowMap.enabled = false;
 
-    const hemi = new THREE.HemisphereLight(0xb8c4d0, 0x1a1c20, 0.85);
-    scene.add(hemi);
-    const key = new THREE.DirectionalLight(0xffffff, 0.75);
-    key.position.set(4, 8, 3);
+    scene.add(new THREE.AmbientLight(0xc8ced4, 0.75));
+    scene.add(new THREE.HemisphereLight(0xffffff, 0x4a5058, 0.75));
+
+    const key = new THREE.DirectionalLight(0xffffff, 1.25);
+    key.position.set(6, 10, 5);
     scene.add(key);
-    const fill = new THREE.DirectionalLight(0x5b8fa8, 0.25);
-    fill.position.set(-3, 2, -2);
-    scene.add(fill);
 
-    // Ground grid (CAD)
-    const grid = new THREE.GridHelper(12, 24, 0x3a4450, 0x222830);
-    grid.position.y = 0;
+    const fill = new THREE.DirectionalLight(0xaab2ba, 0.32);
+    fill.position.set(-6, 4, -3);
+    scene.add(fill);
+    const rim = new THREE.DirectionalLight(0xc8ced4, 0.2);
+    rim.position.set(1, 3, -7);
+    scene.add(rim);
+
+    const floor = new THREE.Mesh(
+      new THREE.PlaneGeometry(22, 22),
+      new THREE.MeshStandardMaterial({ color: 0x212428, metalness: 0.04, roughness: 0.94 })
+    );
+    floor.rotation.x = -Math.PI / 2;
+    scene.add(floor);
+
+    const grid = new THREE.GridHelper(14, 28, 0x3a4048, 0x2a2e34);
+    grid.position.y = 0.003;
+    const gMat = Array.isArray(grid.material) ? grid.material : [grid.material];
+    gMat.forEach((m) => {
+      if (!m) return;
+      m.transparent = true;
+      m.opacity = 0.5;
+      m.depthWrite = false;
+    });
     scene.add(grid);
 
-    // Axes helper small
-    const axes = new THREE.AxesHelper(0.6);
-    axes.position.set(-4.5, 0.02, -3.5);
-    scene.add(axes);
+    // RAL-inspired greys only (no toy colors)
+    const matFrame = std(0x5a616a, 0.65, 0.36);
+    const matSteel = std(0x8e959e, 0.82, 0.26);
+    const matDark = std(0x3a4048, 0.55, 0.4);
+    const matBelt = std(0x2c3036, 0.06, 0.9);
+    const matMotor = std(0x4e5660, 0.48, 0.4);
+    const matSensor = std(0x6e7680, 0.55, 0.38);
+    const matCab = std(0xb4bac2, 0.22, 0.5);
+    const matCabDoor = std(0xa8aeb6, 0.28, 0.46);
+    const matRubber = std(0x1e2228, 0.05, 0.85);
+    const matLens = new THREE.MeshStandardMaterial({
+      color: 0x14181e,
+      metalness: 0.3,
+      roughness: 0.2,
+      emissive: 0x4a5058,
+      emissiveIntensity: 0.12,
+    });
+    const matSelect = new THREE.MeshStandardMaterial({
+      color: 0x7a8896,
+      metalness: 0.4,
+      roughness: 0.35,
+      emissive: 0x2a3340,
+      emissiveIntensity: 0.25,
+    });
 
-    const matSteel = new THREE.MeshStandardMaterial({ color: 0x8a929c, metalness: 0.55, roughness: 0.4 });
-    const matFrame = new THREE.MeshStandardMaterial({ color: 0x4a5160, metalness: 0.35, roughness: 0.55 });
-    const matBelt = new THREE.MeshStandardMaterial({ color: 0x2c3038, metalness: 0.1, roughness: 0.85 });
-    const matMotor = new THREE.MeshStandardMaterial({ color: 0x3d6b4f, metalness: 0.3, roughness: 0.5 });
-    const matSensor = new THREE.MeshStandardMaterial({ color: 0xb8a04a, metalness: 0.4, roughness: 0.35 });
-    const matCab = new THREE.MeshStandardMaterial({ color: 0xd8dde3, metalness: 0.2, roughness: 0.45 });
-    const matAccent = new THREE.MeshStandardMaterial({ color: 0x5b8fa8, metalness: 0.3, roughness: 0.4, emissive: 0x0a1520, emissiveIntensity: 0.2 });
+    function std(color, metalness, roughness) {
+      return new THREE.MeshStandardMaterial({ color, metalness, roughness });
+    }
+
+    function mesh(geo, mat) {
+      const m = new THREE.Mesh(geo, mat);
+      return m;
+    }
+
+    function box(w, h, d, mat) {
+      return mesh(new THREE.BoxGeometry(w, h, d), mat);
+    }
 
     const root = new THREE.Group();
     scene.add(root);
     const parts = {};
+    const segs = reduced ? 16 : 32;
 
-    function box(w, h, d, mat) {
-      const m = new THREE.Mesh(new THREE.BoxGeometry(w, h, d), mat);
-      m.castShadow = false;
-      return m;
-    }
-
-    // Frame rails
+    // —— Frame weldment ——
     const frame = new THREE.Group();
-    const railL = box(4.2, 0.08, 0.08, matFrame); railL.position.set(0, 0.55, -0.45);
-    const railR = box(4.2, 0.08, 0.08, matFrame); railR.position.set(0, 0.55, 0.45);
-    const leg1 = box(0.08, 0.55, 0.08, matFrame); leg1.position.set(-1.9, 0.275, -0.45);
-    const leg2 = box(0.08, 0.55, 0.08, matFrame); leg2.position.set(-1.9, 0.275, 0.45);
-    const leg3 = box(0.08, 0.55, 0.08, matFrame); leg3.position.set(1.9, 0.275, -0.45);
-    const leg4 = box(0.08, 0.55, 0.08, matFrame); leg4.position.set(1.9, 0.275, 0.45);
-    const cross = box(0.08, 0.08, 0.9, matFrame); cross.position.set(0, 0.35, 0);
-    frame.add(railL, railR, leg1, leg2, leg3, leg4, cross);
+    const railGeo = new THREE.BoxGeometry(4.4, 0.07, 0.09);
+    [-0.48, 0.48].forEach((z) => {
+      const r = mesh(railGeo, matFrame);
+      r.position.set(0, 0.58, z);
+      frame.add(r);
+    });
+    // Legs with feet
+    [[-2.0, -0.48], [-2.0, 0.48], [2.0, -0.48], [2.0, 0.48]].forEach(([x, z]) => {
+      const leg = box(0.07, 0.58, 0.07, matFrame);
+      leg.position.set(x, 0.29, z);
+      frame.add(leg);
+      const foot = box(0.16, 0.03, 0.16, matDark);
+      foot.position.set(x, 0.015, z);
+      frame.add(foot);
+    });
+    // Cross members
+    [-1.2, 0, 1.2].forEach((x) => {
+      const c = box(0.06, 0.05, 0.96, matFrame);
+      c.position.set(x, 0.32, 0);
+      frame.add(c);
+    });
+    // Side guards
+    [-0.55, 0.55].forEach((z) => {
+      const g = box(4.2, 0.12, 0.025, matSteel);
+      g.position.set(0, 0.72, z);
+      frame.add(g);
+    });
     root.add(frame);
     parts.frame = frame;
 
-    // Belt / conveyor deck
-    const belt = box(4.0, 0.06, 0.72, matBelt);
-    belt.position.set(0, 0.62, 0);
-    root.add(belt);
-    parts.belt = belt;
+    // —— Belt module ——
+    const beltG = new THREE.Group();
+    const deck = box(4.15, 0.045, 0.78, matBelt);
+    deck.position.set(0, 0.64, 0);
+    beltG.add(deck);
+    // Belt surface detail strips
+    for (let i = -8; i <= 8; i++) {
+      const strip = box(0.04, 0.008, 0.76, matRubber);
+      strip.position.set(i * 0.24, 0.665, 0);
+      beltG.add(strip);
+    }
+    // End drums
+    [-2.05, 2.05].forEach((x) => {
+      const drum = mesh(new THREE.CylinderGeometry(0.055, 0.055, 0.82, segs), matSteel);
+      drum.rotation.x = Math.PI / 2;
+      drum.position.set(x, 0.62, 0);
+      beltG.add(drum);
+    });
+    root.add(beltG);
+    parts.belt = beltG;
 
-    // Rollers
+    // —— Rollers ——
     const rollers = new THREE.Group();
-    for (let i = -3; i <= 3; i++) {
-      const r = new THREE.Mesh(new THREE.CylinderGeometry(0.05, 0.05, 0.7, 12), matSteel);
+    for (let i = -5; i <= 5; i++) {
+      const r = mesh(new THREE.CylinderGeometry(0.038, 0.038, 0.74, segs), matSteel);
       r.rotation.x = Math.PI / 2;
-      r.position.set(i * 0.55, 0.58, 0);
+      r.position.set(i * 0.36, 0.595, 0);
       rollers.add(r);
     }
     root.add(rollers);
     parts.rollers = rollers;
 
-    // Motor + gearbox
+    // —— Drive SEW-style ——
     const drive = new THREE.Group();
-    const motor = new THREE.Mesh(new THREE.CylinderGeometry(0.18, 0.18, 0.42, 20), matMotor);
-    motor.rotation.z = Math.PI / 2;
-    motor.position.set(2.15, 0.35, -0.85);
-    const gearbox = box(0.28, 0.28, 0.28, matSteel);
-    gearbox.position.set(1.85, 0.35, -0.85);
-    const mount = box(0.5, 0.06, 0.35, matFrame);
-    mount.position.set(2.0, 0.18, -0.85);
-    drive.add(motor, gearbox, mount);
+    const motorBody = mesh(new THREE.CylinderGeometry(0.16, 0.16, 0.48, segs), matMotor);
+    motorBody.rotation.z = Math.PI / 2;
+    motorBody.position.set(2.25, 0.32, -0.92);
+    drive.add(motorBody);
+    const motorFan = mesh(new THREE.CylinderGeometry(0.145, 0.145, 0.06, segs), matDark);
+    motorFan.rotation.z = Math.PI / 2;
+    motorFan.position.set(2.52, 0.32, -0.92);
+    drive.add(motorFan);
+    const motorFront = mesh(new THREE.CylinderGeometry(0.12, 0.12, 0.05, segs), matSteel);
+    motorFront.rotation.z = Math.PI / 2;
+    motorFront.position.set(1.98, 0.32, -0.92);
+    drive.add(motorFront);
+    const gearbox = box(0.32, 0.3, 0.3, matSteel);
+    gearbox.position.set(1.78, 0.32, -0.92);
+    drive.add(gearbox);
+    const gbCap = box(0.34, 0.04, 0.32, matDark);
+    gbCap.position.set(1.78, 0.48, -0.92);
+    drive.add(gbCap);
+    const mountPlate = box(0.55, 0.05, 0.4, matFrame);
+    mountPlate.position.set(1.95, 0.14, -0.92);
+    drive.add(mountPlate);
+    const shaft = mesh(new THREE.CylinderGeometry(0.025, 0.025, 0.35, 12), matSteel);
+    shaft.rotation.x = Math.PI / 2;
+    shaft.position.set(1.78, 0.32, -0.7);
+    drive.add(shaft);
+    // Cooling fins hint
+    for (let i = 0; i < 6; i++) {
+      const fin = box(0.01, 0.22, 0.28, matDark);
+      fin.position.set(2.1 + i * 0.035, 0.32, -0.92);
+      drive.add(fin);
+    }
     root.add(drive);
     parts.drive = drive;
 
-    // Sensors
+    // —— Sensors ——
     const sensors = new THREE.Group();
-    const sIn = box(0.08, 0.22, 0.08, matSensor); sIn.position.set(-1.6, 0.85, 0.55);
-    const sOut = box(0.08, 0.22, 0.08, matSensor); sOut.position.set(1.6, 0.85, 0.55);
-    const bracket = box(0.04, 0.35, 0.04, matFrame);
-    bracket.position.set(-1.6, 0.72, 0.55);
-    sensors.add(sIn, sOut, bracket);
+    function peSensor(x) {
+      const g = new THREE.Group();
+      const body = box(0.07, 0.2, 0.07, matSensor);
+      body.position.set(0, 0.1, 0);
+      g.add(body);
+      const lens = mesh(new THREE.CylinderGeometry(0.018, 0.018, 0.02, 16), matLens);
+      lens.rotation.x = Math.PI / 2;
+      lens.position.set(0, 0.12, 0.045);
+      g.add(lens);
+      const bracket = box(0.03, 0.42, 0.03, matFrame);
+      bracket.position.set(0, -0.05, 0);
+      g.add(bracket);
+      const base = box(0.12, 0.025, 0.08, matDark);
+      base.position.set(0, -0.26, 0);
+      g.add(base);
+      g.position.set(x, 0.9, 0.58);
+      return g;
+    }
+    sensors.add(peSensor(-1.7), peSensor(1.7));
     root.add(sensors);
     parts.sensors = sensors;
 
-    // Control cabinet
-    const cabinet = box(0.55, 1.1, 0.35, matCab);
-    cabinet.position.set(-2.6, 0.55, -1.1);
-    const handle = box(0.02, 0.25, 0.04, matAccent);
-    handle.position.set(-2.32, 0.55, -1.1);
-    root.add(cabinet, handle);
+    // —— Control cabinet (RAL 7035-ish) ——
+    const cabinet = new THREE.Group();
+    const cabBody = box(0.58, 1.2, 0.38, matCab);
+    cabBody.position.set(0, 0.6, 0);
+    cabinet.add(cabBody);
+    const door = box(0.54, 1.12, 0.02, matCabDoor);
+    door.position.set(0, 0.6, 0.2);
+    cabinet.add(door);
+    const handle = box(0.02, 0.22, 0.035, matSteel);
+    handle.position.set(0.2, 0.58, 0.23);
+    cabinet.add(handle);
+    const plinth = box(0.6, 0.08, 0.4, matDark);
+    plinth.position.set(0, 0.04, 0);
+    cabinet.add(plinth);
+    // Vent louvers
+    for (let i = 0; i < 5; i++) {
+      const lou = box(0.2, 0.012, 0.01, matDark);
+      lou.position.set(-0.12, 1.0 - i * 0.04, 0.21);
+      cabinet.add(lou);
+    }
+    // Cable duct to frame
+    const duct = box(0.8, 0.04, 0.04, matDark);
+    duct.position.set(0.55, 0.25, 0.1);
+    cabinet.add(duct);
+    cabinet.position.set(-2.75, 0, -1.15);
+    root.add(cabinet);
     parts.cabinet = cabinet;
 
-    // Product on belt
-    const product = box(0.28, 0.18, 0.28, matAccent);
-    product.position.set(-1.2, 0.74, 0);
+    // WIP unit on belt
+    const product = new THREE.Group();
+    const crate = box(0.32, 0.2, 0.28, matSteel);
+    crate.position.y = 0.1;
+    product.add(crate);
+    const crateTop = box(0.34, 0.02, 0.3, matDark);
+    crateTop.position.y = 0.21;
+    product.add(crateTop);
+    product.position.set(-1.1, 0.665, 0);
     root.add(product);
     parts.product = product;
 
-    let explode = 0;
-    let camAngle = 0.55;
-    let running = opts.running || false;
-    let productX = -1.2;
-    let highlight = null;
+    // Origin marker (subtle)
+    const origin = mesh(new THREE.SphereGeometry(0.025, 12, 12), matSteel);
+    origin.position.set(0, 0.02, 0);
+    scene.add(origin);
+
+    let explode = opts.explode != null ? opts.explode : 0;
+    let camAngle = 0.62;
+    let running = !!opts.running;
+    let productX = -1.1;
+
+    const labels = {
+      frame: "ASM-FRAME-001",
+      belt: "CNV-BELT-0400",
+      rollers: "ROL-SET-11",
+      drive: "DRV-SEW-0.75",
+      sensors: "SNS-PE-PAIR",
+      cabinet: "CAB-VX25-600",
+      product: "WIP-UNIT",
+    };
+
+    function setExplode(t) {
+      explode = Math.max(0, Math.min(1, t));
+      const e = explode;
+      frame.position.set(0, e * 0.08, 0);
+      beltG.position.set(0, e * 0.55, 0);
+      rollers.position.set(0, e * 0.35, 0);
+      drive.position.set(e * 0.85, e * 0.25, e * -0.55);
+      sensors.position.set(0, e * 0.75, e * 0.45);
+      cabinet.position.set(-2.75 - e * 0.85, 0, -1.15 - e * 0.35);
+      product.visible = e < 0.25;
+    }
+
+    function setHighlight(name) {
+      Object.keys(parts).forEach((k) => {
+        parts[k].traverse((o) => {
+          if (!o.isMesh) return;
+          if (!o.userData._mat) o.userData._mat = o.material;
+          o.material = o.userData._mat;
+        });
+      });
+      if (name && parts[name]) {
+        parts[name].traverse((o) => {
+          if (o.isMesh) o.material = matSelect;
+        });
+      }
+      document.querySelectorAll("[data-cad-part]").forEach((el) => {
+        el.textContent = name ? labels[name] || name : "—";
+      });
+    }
+
+    const raycaster = new THREE.Raycaster();
+    const pointer = new THREE.Vector2();
+    const pickables = [frame, beltG, rollers, drive, sensors, cabinet];
+
+    canvas.addEventListener("pointermove", (e) => {
+      const rect = canvas.getBoundingClientRect();
+      pointer.x = ((e.clientX - rect.left) / rect.width) * 2 - 1;
+      pointer.y = -((e.clientY - rect.top) / rect.height) * 2 + 1;
+      raycaster.setFromCamera(pointer, camera);
+      const hits = raycaster.intersectObjects(pickables, true);
+      if (!hits.length) {
+        setHighlight(null);
+        return;
+      }
+      let obj = hits[0].object;
+      while (obj && obj.parent && !Object.values(parts).includes(obj)) obj = obj.parent;
+      const hit = Object.entries(parts).find(([, v]) => v === obj);
+      setHighlight(hit ? hit[0] : null);
+    });
 
     function resize() {
       const parent = canvas.parentElement;
-      const w = parent.clientWidth || 600;
-      const h = parent.clientHeight || 420;
+      const w = Math.max(parent ? parent.clientWidth : 0, canvas.clientWidth || 640, 320);
+      const h = Math.max(parent ? parent.clientHeight : 0, canvas.clientHeight || 420, 420);
       camera.aspect = w / h;
       camera.updateProjectionMatrix();
       renderer.setSize(w, h, false);
@@ -145,109 +352,49 @@
     resize();
     window.addEventListener("resize", resize);
 
-    function setExplode(t) {
-      explode = Math.max(0, Math.min(1, t));
-      frame.position.y = explode * 0.15;
-      belt.position.y = 0.62 + explode * 0.55;
-      drive.position.set(explode * 0.8, explode * 0.2, explode * -0.6);
-      sensors.position.set(0, explode * 0.9, explode * 0.5);
-      cabinet.position.set(-2.6 - explode * 0.7, 0.55, -1.1 - explode * 0.4);
-      handle.position.set(-2.32 - explode * 0.7, 0.55, -1.1 - explode * 0.4);
-      product.visible = explode < 0.3;
-    }
-
-    function setHighlight(name) {
-      Object.keys(parts).forEach((k) => {
-        const g = parts[k];
-        const meshes = g.isMesh ? [g] : g.children.filter((c) => c.isMesh);
-        meshes.forEach((m) => {
-          if (!m.userData._mat) m.userData._mat = m.material;
-          m.material = m.userData._mat;
-        });
-      });
-      highlight = name;
-      if (name && parts[name]) {
-        const g = parts[name];
-        const meshes = g.isMesh ? [g] : g.children.filter((c) => c.isMesh);
-        meshes.forEach((m) => {
-          m.material = matAccent;
-        });
-      }
-      const label = document.querySelector("[data-cad-part]");
-      if (label) label.textContent = name ? partLabel(name) : "—";
-    }
-
-    function partLabel(name) {
-      const map = {
-        frame: "ASM-FRAME-001",
-        belt: "CNV-BELT-0400",
-        rollers: "ROL-SET-07",
-        drive: "DRV-SEW-0.75kW",
-        sensors: "SNS-PEPPERL-2",
-        cabinet: "CAB-RITTAL-600",
-        product: "WIP-UNIT",
-      };
-      return map[name] || name;
-    }
-
-    // Hover picking
-    const raycaster = new THREE.Raycaster();
-    const pointer = new THREE.Vector2();
-    const pickables = [frame, belt, rollers, drive, sensors, cabinet];
-    canvas.addEventListener("pointermove", (e) => {
-      const rect = canvas.getBoundingClientRect();
-      pointer.x = ((e.clientX - rect.left) / rect.width) * 2 - 1;
-      pointer.y = -((e.clientY - rect.top) / rect.height) * 2 + 1;
-      raycaster.setFromCamera(pointer, camera);
-      const hits = raycaster.intersectObjects(pickables, true);
-      if (!hits.length) { setHighlight(null); return; }
-      let obj = hits[0].object;
-      while (obj && !Object.values(parts).includes(obj)) obj = obj.parent;
-      const entry = Object.entries(parts).find(([, v]) => v === obj);
-      setHighlight(entry ? entry[0] : null);
-    });
-
     function tick(t) {
-      const time = t * 0.001;
       if (!reduced) {
-        camAngle += 0.0015;
-        const r = 6.2 - explode * 1.2;
+        camAngle += 0.0012;
+        const r = 7.2 - explode * 1.4;
         camera.position.x = Math.cos(camAngle) * r;
-        camera.position.z = Math.sin(camAngle) * r;
-        camera.position.y = 2.4 + explode * 1.2;
-        camera.lookAt(0, 0.5 + explode * 0.4, 0);
+        camera.position.z = Math.sin(camAngle) * r * 0.95;
+        camera.position.y = 2.8 + explode * 1.4;
+        camera.lookAt(0, 0.45 + explode * 0.35, 0);
       }
       if (running && explode < 0.2) {
-        productX += 0.012;
-        if (productX > 1.8) productX = -1.8;
+        productX += 0.01;
+        if (productX > 1.85) productX = -1.85;
         product.position.x = productX;
-        rollers.children.forEach((r) => { r.rotation.z -= 0.04; });
+        rollers.children.forEach((r) => {
+          r.rotation.z -= 0.035;
+        });
       }
       renderer.render(scene, camera);
       requestAnimationFrame(tick);
     }
     requestAnimationFrame(tick);
 
-    // Scroll coupling for journey
     if (opts.scrollCouple) {
       const onScroll = () => {
-        const section = canvas.closest("[data-step]") || document.querySelector("[data-journey-cad]");
+        const section =
+          canvas.closest("[data-step]") || document.querySelector("[data-journey-cad]");
         if (!section) return;
         const rect = section.getBoundingClientRect();
         const view = window.innerHeight || 1;
         const p = 1 - Math.min(1, Math.max(0, rect.bottom / (view + rect.height)));
         if (opts.mode === "explode") setExplode(p);
-        if (opts.mode === "run") { running = p > 0.3; setExplode(0); }
+        if (opts.mode === "run") {
+          running = p > 0.25;
+          setExplode(0);
+        }
         if (opts.mode === "build") setExplode(1 - p);
       };
       window.addEventListener("scroll", onScroll, { passive: true });
       onScroll();
     }
 
-    if (opts.explode != null) setExplode(opts.explode);
-    if (opts.running) running = true;
-
-    return { setExplode, setHighlight, setRunning: (v) => { running = v; }, resize };
+    setExplode(explode);
+    return { setExplode, setHighlight, resize };
   }
 
   const _queue = [];
@@ -258,17 +405,29 @@
     if (_loading) return;
     _loading = true;
     const s = document.createElement("script");
-    s.src = "https://unpkg.com/three@0.160.0/build/three.min.js";
-    s.onload = () => { _queue.splice(0).forEach((fn) => fn()); };
-    s.onerror = () => { _loading = false; };
+    const base = document.querySelector('script[src*="cad-viewport.js"]');
+    const root = base ? base.getAttribute("src").replace(/cad-viewport\.js.*$/, "") : "../js/";
+    s.src = root + "vendor/three.min.js";
+    s.onload = () => _queue.splice(0).forEach((fn) => fn());
+    s.onerror = () => {
+      console.error("[CadViewport] failed to load three.min.js");
+      _loading = false;
+    };
     document.head.appendChild(s);
   }
 
   window.CadViewport = {
     mount(selector, opts) {
-      const canvas = typeof selector === "string" ? document.querySelector(selector) : selector;
-      if (!canvas) return;
-      loadThree(() => boot(canvas, opts || {}));
+      const el = typeof selector === "string" ? document.querySelector(selector) : selector;
+      if (!el) return;
+      loadThree(() => {
+        try {
+          boot(el, opts || {});
+        } catch (err) {
+          console.error("[CadViewport]", err);
+          el.style.background = "#2a2e34";
+        }
+      });
     },
   };
 })();
