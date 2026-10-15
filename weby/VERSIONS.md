@@ -1,5 +1,5 @@
 # Caviar — `/weby/`
 
-Jedna stránka: `index.html` (Caviar, SK default).
+Caviar žije na **https://caviarstudio.sk** (standalone GitHub Pages, export v `/caviar-site/`).
 
-`index.full.html` je presmerovanie na `./` kvôli starým odkazom na predchádzajúcu Signal House verziu.
+`index.html` a `index.full.html` sem presmerujú.
