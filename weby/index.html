@@ -39,9 +39,18 @@
     "url": "https://thedesigns.org/weby/",
     "email": "hello@thedesigns.org",
     "telephone": "+421905173086",
+    "address": {
+      "@type": "PostalAddress",
+      "addressLocality": "Trnava",
+      "addressCountry": "Slovakia"
+    },
     "areaServed": [
       { "@type": "City", "name": "Trnava" },
       { "@type": "Country", "name": "Slovakia" }
+    ],
+    "founder": [
+      { "@type": "Person", "name": "Miroslav Kotvas" },
+      { "@type": "Person", "name": "Sofia Klebanová" }
     ],
     "description": "Weby, video a fotky pre miestne podniky. Jedno štúdio, jeden vizuálny jazyk, žiadne šablóny.",
     "priceRange": "€€"
@@ -250,16 +259,25 @@
     </section>
 
     <section id="onas">
-      <div class="wrap about-grid">
-        <div class="about-photo reveal" role="img" data-i18n-aria="aboutPhotoAria" aria-label="TODO: foto majiteľa">
-          <span data-i18n="aboutPhoto">TODO: foto majiteľa</span>
-        </div>
-        <div class="about reveal">
-          <span class="todo">TODO</span>
+      <div class="wrap">
+        <div class="sec-head reveal">
+          <p class="kicker"><span class="pearl" aria-hidden="true"></span> <span data-i18n="teamKicker">Tím</span></p>
           <h2 data-i18n="aboutTitle">O nás</h2>
-          <p class="name" data-i18n="aboutName">TODO: meno majiteľa</p>
-          <p class="story" data-i18n="aboutStory">TODO: jeden riadok, prečo Caviar existuje — bez vymyslených ocenení a klientov.</p>
         </div>
+        <ul class="team-grid">
+          <li class="team-card reveal">
+            <div class="about-photo" role="img" aria-label="Miroslav Kotvas — TODO: foto">
+              <span data-i18n="aboutPhoto">TODO: foto</span>
+            </div>
+            <h3>Miroslav Kotvas</h3>
+          </li>
+          <li class="team-card reveal">
+            <div class="about-photo" role="img" aria-label="Sofia Klebanová — TODO: foto">
+              <span data-i18n="aboutPhoto">TODO: foto</span>
+            </div>
+            <h3>Sofia Klebanová</h3>
+          </li>
+        </ul>
       </div>
     </section>
 
@@ -309,6 +327,7 @@
             <a class="btn btn-ghost" data-wa-wrap data-wa-href href="https://wa.me/421905173086" data-i18n="ctaWa">WhatsApp</a>
           </div>
           <p class="contact-num" data-phone-wrap data-phone-text>+421 905 173 086</p>
+          <p class="contact-place" data-i18n="place">Trnava, Slovensko</p>
         </div>
         <form class="form reveal" id="quote-form">
           <div class="field">
@@ -346,6 +365,7 @@
       <strong>Caviar</strong>
       · <a href="mailto:hello@thedesigns.org">hello@thedesigns.org</a>
       <span data-phone-wrap> · <a data-phone-href href="tel:+421905173086" data-phone-text>+421 905 173 086</a></span>
+      · <span data-i18n="place">Trnava, Slovensko</span>
     </div>
     <div>
       <a href="../" data-i18n="navHub">thedesigns.org</a>
@@ -431,11 +451,10 @@
         w5alt: "Everlight — ukážka svadobnej foto a video práce",
         phTile: "TODO: sem príde vaša práca",
         everLink: "Pozrieť foto a video prácu na Everlight",
-        aboutPhotoAria: "TODO: foto majiteľa",
-        aboutPhoto: "TODO: foto majiteľa",
+        teamKicker: "Tím",
+        aboutPhoto: "TODO: foto",
         aboutTitle: "O nás",
-        aboutName: "TODO: meno majiteľa",
-        aboutStory: "TODO: jeden riadok, prečo Caviar existuje — bez vymyslených ocenení a klientov.",
+        place: "Trnava, Slovensko",
         faqTitle: "Stručne a na rovinu.",
         faq1q: "Ako dlho to trvá?",
         faq1a: "Web 5–7 dní od odsúhlasenia. Foto a video 3–5 dní po natáčaní. Termín natáčania dohodneme na calle.",
@@ -512,11 +531,10 @@
         w5alt: "Everlight — sample of wedding photo and video work",
         phTile: "TODO: your work goes here",
         everLink: "See photo and video work on Everlight",
-        aboutPhotoAria: "TODO: owner photo",
-        aboutPhoto: "TODO: owner photo",
+        teamKicker: "Team",
+        aboutPhoto: "TODO: photo",
         aboutTitle: "About",
-        aboutName: "TODO: owner name",
-        aboutStory: "TODO: one line on why Caviar exists — no invented awards or clients.",
+        place: "Trnava, Slovakia",
         faqTitle: "Straight answers.",
         faq1q: "How long does it take?",
         faq1a: "Web in 5–7 days after approval. Photo and video 3–5 days after the shoot. We set the shoot date on the call.",
@@ -593,11 +611,10 @@
         w5alt: "Everlight — Beispiel für Hochzeitsfoto und -video",
         phTile: "TODO: hier kommt Ihre Arbeit hin",
         everLink: "Foto- und Videoarbeit auf Everlight ansehen",
-        aboutPhotoAria: "TODO: Foto der Inhaberin / des Inhabers",
-        aboutPhoto: "TODO: Foto der Inhaberin / des Inhabers",
+        teamKicker: "Team",
+        aboutPhoto: "TODO: Foto",
         aboutTitle: "Über uns",
-        aboutName: "TODO: Name der Inhaberin / des Inhabers",
-        aboutStory: "TODO: ein Satz, warum Caviar existiert — ohne erfundene Preise oder Kunden.",
+        place: "Trnava, Slowakei",
         faqTitle: "Kurz und klar.",
         faq1q: "Wie lange dauert es?",
         faq1a: "Web in 5–7 Tagen nach Freigabe. Foto und Video 3–5 Tage nach dem Dreh. Den Drehtermin klären wir am Call.",

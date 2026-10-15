@@ -27,7 +27,7 @@ Current page uses archive placeholders (`img/egypt/*.jpg`, `foto/images/metal.pn
 | Portfolio large | `img/weby/work-01.webp` | `img/egypt/egypt_1069.jpg` |
 | Product / metal | `img/weby/work-product.webp` | `foto/images/metal.png` |
 | Motion / reel still | `img/weby/work-motion.webp` | `foto/images/fluid.png` |
-| Owner portrait | `img/weby/owner.webp` | TODO placeholder in `#onas` |
+| Founder portraits | `img/weby/miroslav-kotvas.webp`, `img/weby/sofia-klebanova.webp` | Neutral TODO placeholders in `#onas` (no stock faces) |
 
 Everlight (`../foto/`) stays a **labelled** photo/video sample, not a Caviar client story.
 

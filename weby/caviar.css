@@ -653,15 +653,25 @@ section {
   background-size: 100% 1px;
 }
 
-.about-grid {
+.team-grid {
+  list-style: none;
   display: grid;
-  gap: 32px;
-  align-items: start;
+  grid-template-columns: 1fr;
+  gap: clamp(24px, 4vw, 48px);
+}
+
+.team-card h3 {
+  margin-top: 18px;
+  font-family: var(--serif);
+  font-size: clamp(1.4rem, 2.4vw, 1.85rem);
+  font-weight: 400;
+  letter-spacing: 0.02em;
 }
 
 .about-photo {
   aspect-ratio: 3 / 4;
-  max-width: 320px;
+  max-width: 380px;
+  width: 100%;
   border: 1px dashed rgba(197, 202, 211, 0.28);
   display: grid;
   place-items: center;
@@ -674,27 +684,12 @@ section {
   background: var(--bg-2);
 }
 
-.todo {
-  display: inline-block;
-  font-size: 0.62rem;
-  letter-spacing: 0.22em;
+.contact-place {
+  margin-top: 10px;
+  font-size: 0.85rem;
+  letter-spacing: 0.12em;
   text-transform: uppercase;
-  color: var(--bg);
-  background: var(--silver);
-  padding: 4px 8px;
-  margin-bottom: 12px;
-}
-
-.about h2 {
-  font-family: var(--serif);
-  font-size: clamp(2rem, 4vw, 3.2rem);
-  font-weight: 400;
-}
-
-.about .name,
-.about .story {
-  margin-top: 12px;
-  color: var(--muted);
+  color: var(--silver);
 }
 
 .faq-list {
@@ -903,8 +898,8 @@ section {
     min-height: 0;
   }
 
-  .about-grid {
-    grid-template-columns: 280px 1fr;
+  .team-grid {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
     gap: 64px;
   }
 
