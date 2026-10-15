@@ -31,7 +31,7 @@
   <link rel="preload" as="image" href="../img/egypt/egypt_1073.jpg">
   <link rel="stylesheet" href="./caviar.css">
   <!-- Analytics: paste Plausible or GA snippet here. Do not add trackers by default. -->
-  <script type="application/ld+json">
+  <script type="application/ld+json" id="caviar-jsonld">
   {
     "@context": "https://schema.org",
     "@type": "LocalBusiness",
@@ -53,7 +53,13 @@
       { "@type": "Person", "name": "Sofia Klebanová" }
     ],
     "description": "Weby, video a fotky pre miestne podniky. Jedno štúdio, jeden vizuálny jazyk, žiadne šablóny.",
-    "priceRange": "€€"
+    "priceRange": "€49–€349",
+    "makesOffer": [
+      { "@type": "Offer", "name": "Foto Mini", "price": "49", "priceCurrency": "EUR", "valueAddedTaxIncluded": true },
+      { "@type": "Offer", "name": "Video Reel", "price": "69", "priceCurrency": "EUR", "valueAddedTaxIncluded": true },
+      { "@type": "Offer", "name": "Web Jednostránka", "price": "190", "priceCurrency": "EUR", "valueAddedTaxIncluded": true },
+      { "@type": "Offer", "name": "Caviar Komplet", "price": "349", "priceCurrency": "EUR", "valueAddedTaxIncluded": true }
+    ]
   }
   </script>
 </head>
@@ -139,7 +145,7 @@
             <h3 data-i18n="pFotoName">Foto Mini</h3>
             <p class="desc" data-i18n="pFotoDesc">1 hodina fotenia, 15 upravených fotiek.</p>
             <div class="price-row">
-              <p class="price"><span data-i18n="priceFrom">od</span> <span data-price="fotoMini.launch"></span> EUR</p>
+              <p class="price"><span data-i18n="priceFrom">od</span> <span data-price="fotoMini.launch"></span> EUR <span class="vat-tag" data-vat-tag>cena s DPH</span></p>
               <p class="was"><s><span data-price="fotoMini.standard"></span> EUR</s><span class="was-label" data-i18n="stdLabel">bežná cena po spustení</span></p>
             </div>
           </article>
@@ -148,7 +154,7 @@
             <h3 data-i18n="pVideoName">Video Reel</h3>
             <p class="desc" data-i18n="pVideoDesc">1 krátky vertikálny reel (15–30 s), strih, hudba a titulky.</p>
             <div class="price-row">
-              <p class="price"><span data-i18n="priceFrom">od</span> <span data-price="videoReel.launch"></span> EUR</p>
+              <p class="price"><span data-i18n="priceFrom">od</span> <span data-price="videoReel.launch"></span> EUR <span class="vat-tag" data-vat-tag>cena s DPH</span></p>
               <p class="was"><s><span data-price="videoReel.standard"></span> EUR</s><span class="was-label" data-i18n="stdLabel">bežná cena po spustení</span></p>
             </div>
           </article>
@@ -157,7 +163,7 @@
             <h3 data-i18n="pWebName">Web Jednostránka</h3>
             <p class="desc" data-i18n="pWebDesc">Jednostránkový responzívny web s tlačidlom Kontakt, mapou, základným SEO a napojením domény.</p>
             <div class="price-row">
-              <p class="price"><span data-i18n="priceFrom">od</span> <span data-price="webOnePager.launch"></span> EUR</p>
+              <p class="price"><span data-i18n="priceFrom">od</span> <span data-price="webOnePager.launch"></span> EUR <span class="vat-tag" data-vat-tag>cena s DPH</span></p>
               <p class="was"><s><span data-price="webOnePager.standard"></span> EUR</s><span class="was-label" data-i18n="stdLabel">bežná cena po spustení</span></p>
             </div>
           </article>
@@ -168,7 +174,7 @@
               <p class="desc" data-i18n="pKompletDesc">Jednostránkový web + 2 reely + 20 fotiek. Jeden vizuál pre celý podnik.</p>
             </div>
             <div class="price-row">
-              <p class="price"><span data-i18n="priceFrom">od</span> <span data-price="komplet.launch"></span> EUR</p>
+              <p class="price"><span data-i18n="priceFrom">od</span> <span data-price="komplet.launch"></span> EUR <span class="vat-tag" data-vat-tag>cena s DPH</span></p>
               <p class="was"><s><span data-price="komplet.standard"></span> EUR</s><span class="was-label" data-i18n="stdLabel">bežná cena po spustení</span></p>
             </div>
           </article>
@@ -388,7 +394,7 @@
       EMAIL: "hello@thedesigns.org",
       SLOTS_TOTAL: 10,
       SLOTS_REMAINING: 10,
-      VAT_PAYER: false,
+      VAT_PAYER: true, // true = shown prices are final, with VAT (s DPH)
       prices: {
         fotoMini: { launch: 49, standard: 120 },
         videoReel: { launch: 69, standard: 180 },
@@ -423,7 +429,7 @@
         slots: "Zostáva {x} z {total} miest",
         launchBadge: "Úvodná cena",
         priceFrom: "od",
-        stdLabel: "bežná cena po spustení",
+        stdLabel: "bežná cena po spustení, s DPH",
         pFotoName: "Foto Mini", pVideoName: "Video Reel", pWebName: "Web Jednostránka", pKompletName: "Caviar Komplet",
         pFotoDesc: "1 hodina fotenia, 15 upravených fotiek.",
         pVideoDesc: "1 krátky vertikálny reel (15–30 s), strih, hudba a titulky.",
@@ -432,7 +438,9 @@
         priceIntro: "Úvodné ceny platia pre prvých 10 klientov. Za referenciu a krátku recenziu dostanete bonus.",
         noHidden: "Bez skrytých poplatkov.",
         vatNo: "Ceny sú bez DPH (nie som platiteľ DPH).",
-        vatYes: "Ceny sú uvedené bez DPH.",
+        vatYes: "Všetky ceny sú s DPH.",
+        vatTag: "cena s DPH",
+        vatTagEx: "cena bez DPH",
         howKicker: "Postup",
         howTitle: "Štyri kroky. Žiadna byrokracia.",
         how1t: "Cenová ponuka do 24 hodín", how1p: "Napíšte, čo potrebujete. Do druhého dňa máte konkrétnu cenu.",
@@ -503,7 +511,7 @@
         slots: "{x} of {total} spots left",
         launchBadge: "Launch price",
         priceFrom: "from",
-        stdLabel: "standard price after launch",
+        stdLabel: "standard price after launch, incl. VAT",
         pFotoName: "Foto Mini", pVideoName: "Video Reel", pWebName: "Web One-pager", pKompletName: "Caviar Komplet",
         pFotoDesc: "1-hour shoot, 15 edited photos.",
         pVideoDesc: "1 short vertical reel (15–30 s), edit, music and captions.",
@@ -512,7 +520,9 @@
         priceIntro: "Launch prices apply to the first 10 clients. A reference and a short review earn you a bonus.",
         noHidden: "No hidden fees.",
         vatNo: "Prices exclude VAT (not a VAT payer).",
-        vatYes: "Prices exclude VAT.",
+        vatYes: "All prices include VAT.",
+        vatTag: "incl. VAT",
+        vatTagEx: "excl. VAT",
         howKicker: "Process",
         howTitle: "Four steps. No runaround.",
         how1t: "Quote within 24 hours", how1p: "Tell us what you need. You get a concrete price the next day.",
@@ -583,7 +593,7 @@
         slots: "Noch {x} von {total} Plätzen",
         launchBadge: "Einführungspreis",
         priceFrom: "ab",
-        stdLabel: "üblicher Preis nach dem Start",
+        stdLabel: "üblicher Preis nach dem Start, inkl. MwSt.",
         pFotoName: "Foto Mini", pVideoName: "Video Reel", pWebName: "Web One-Pager", pKompletName: "Caviar Komplet",
         pFotoDesc: "1 Stunde Shooting, 15 bearbeitete Fotos.",
         pVideoDesc: "1 kurzes vertikales Reel (15–30 s), Schnitt, Musik und Untertitel.",
@@ -592,7 +602,9 @@
         priceIntro: "Einführungspreise gelten für die ersten 10 Kunden. Für eine Referenz und eine kurze Rezension gibt es einen Bonus.",
         noHidden: "Keine versteckten Gebühren.",
         vatNo: "Preise ohne MwSt. (kein MwSt.-Pflichtiger).",
-        vatYes: "Preise ohne MwSt.",
+        vatYes: "Alle Preise inkl. MwSt.",
+        vatTag: "inkl. MwSt.",
+        vatTagEx: "zzgl. MwSt.",
         howKicker: "Ablauf",
         howTitle: "Vier Schritte. Kein Umweg.",
         how1t: "Angebot innerhalb von 24 Stunden", how1p: "Schreiben Sie, was Sie brauchen. Am nächsten Tag steht der Preis.",
@@ -667,6 +679,31 @@
       }
       const vat = document.querySelector("[data-vat]");
       if (vat) vat.textContent = CAVIAR.VAT_PAYER ? pack.vatYes : pack.vatNo;
+      document.querySelectorAll("[data-vat-tag]").forEach((el) => {
+        el.textContent = CAVIAR.VAT_PAYER ? pack.vatTag : pack.vatTagEx;
+      });
+      const ld = document.getElementById("caviar-jsonld");
+      if (ld) {
+        try {
+          const data = JSON.parse(ld.textContent);
+          const names = {
+            fotoMini: "Foto Mini",
+            videoReel: "Video Reel",
+            webOnePager: "Web Jednostránka",
+            komplet: "Caviar Komplet"
+          };
+          const amounts = Object.values(CAVIAR.prices).map((p) => p.launch);
+          data.makesOffer = Object.entries(CAVIAR.prices).map(([key, p]) => ({
+            "@type": "Offer",
+            name: names[key] || key,
+            price: String(p.launch),
+            priceCurrency: "EUR",
+            valueAddedTaxIncluded: !!CAVIAR.VAT_PAYER
+          }));
+          data.priceRange = "€" + Math.min.apply(null, amounts) + "–€" + Math.max.apply(null, amounts);
+          ld.textContent = JSON.stringify(data);
+        } catch (_) {}
+      }
 
       const phone = String(CAVIAR.PHONE || "").trim();
       const wa = String(CAVIAR.WHATSAPP || "").trim();
