@@ -5,6 +5,6 @@ Moderný landing + 3 podstránky (SK/DE) pod jednou doménou.
 ## Obsah
 
 - `index.html` - hub stránka s 3 klikateľnými sklenenými stĺpcami (SK/DE)
-- `/weby/` - **Signal House** — minimalistická brand stránka (plná verzia: `/weby/index.full.html`, viď `weby/VERSIONS.md`)
+- `/weby/` - **Caviar** — weby, video a fotky pre podniky (SK default)
 - `/foto/` - **Everlight** — svadobné foto & video, balíky, kalendár rezervácií
 - `/elektro/` - **Voltwerk** — Automatisierungselektrik & Mechanik (DE-first: Elektroplanung, Schaltschrankbau, SPS, Mechanik, Inbetriebnahme, Service)

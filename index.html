@@ -4,7 +4,7 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>thedesigns.org | Tri služby</title>
-  <meta name="description" content="Signal House — branding, web a marketing. Everlight — svadobné foto a video. Voltwerk — automatizačná elektrotechnika a mechanika.">
+  <meta name="description" content="Caviar — weby, video a fotky. Everlight — svadobné foto a video. Voltwerk — automatizačná elektrotechnika a mechanika.">
   <link rel="stylesheet" href="./css/design-system.css">
   <style>
     :root {
@@ -217,15 +217,15 @@
 
   <main class="page ds-container">
     <div class="hub-grid">
-      <a class="col" href="./weby/" aria-label="Signal House branding a marketing">
-        <img src="./img/nx/tstimg.png" alt="Design studio — vizuálna identita" loading="lazy">
+      <a class="col" href="./weby/" aria-label="Caviar — weby, video a fotky pre váš podnik" data-i18n-aria="aria1">
+        <img src="./img/nx/tstimg.png" alt="Caviar — weby, video a fotky" loading="lazy">
         <div class="ink">
           <div class="ico" aria-hidden="true">
             <svg viewBox="0 0 24 24"><path d="M12 2l3 6h6l-5 4 2 7-6-4-6 4 2-7-5-4h6z"/></svg>
           </div>
           <span class="label" data-i18n="label1">Sektor 01</span>
-          <h2 data-i18n="title1">Signal House</h2>
-          <p data-i18n="text1">Branding, web, e-shop, sociálne siete a marketing pod jednou strechou.</p>
+          <h2 data-i18n="title1">Caviar</h2>
+          <p data-i18n="text1">Caviar — weby, video a fotky pre váš podnik.</p>
         </div>
       </a>
 
@@ -258,16 +258,18 @@
   <script>
     const dictionary = {
       sk: {
-        label1: "Sektor 01", title1: "Signal House",
-        text1: "Branding, web, e-shop, sociálne siete a marketing pod jednou strechou.",
+        label1: "Sektor 01", title1: "Caviar",
+        text1: "Caviar — weby, video a fotky pre váš podnik.",
+        aria1: "Caviar — weby, video a fotky pre váš podnik",
         label2: "Sektor 02", title2: "Everlight",
         text2: "Svadobné foto, video, drone a rezervácia termínu v kalendári.",
         label3: "Sektor 03", title3: "Voltwerk",
         text3: "Automatizačná elektrotechnika a mechanika — elektroplánovanie, rozvádzače, PLC, spustenie."
       },
       de: {
-        label1: "Bereich 01", title1: "Signal House",
-        text1: "Branding, Web, Shop, Social Media und Marketing aus einer Hand.",
+        label1: "Bereich 01", title1: "Caviar",
+        text1: "Caviar — Websites, Video und Foto für Ihr Unternehmen.",
+        aria1: "Caviar — Websites, Video und Foto für Ihr Unternehmen",
         label2: "Bereich 02", title2: "Everlight",
         text2: "Hochzeitsfoto, Video, Drohne und Terminbuchung im Kalender.",
         label3: "Bereich 03", title3: "Voltwerk",
@@ -285,6 +287,10 @@
       targets.forEach((el) => {
         const key = el.getAttribute("data-i18n");
         if (pack[key]) el.textContent = pack[key];
+      });
+      document.querySelectorAll("[data-i18n-aria]").forEach((el) => {
+        const key = el.getAttribute("data-i18n-aria");
+        if (pack[key]) el.setAttribute("aria-label", pack[key]);
       });
       buttons.forEach((btn) => btn.classList.toggle("active", btn.dataset.lang === lang));
       try { localStorage.setItem("td-lang", lang); } catch (_) {}

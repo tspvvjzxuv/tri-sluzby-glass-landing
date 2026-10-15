@@ -5,9 +5,12 @@
   --color-hub-bg: #080a1d;
   --color-hub-accent: #6b2cff;
 
-  --color-signal-primary: #1a1c1e;
-  --color-signal-accent: #a78bfa;
-  --color-signal-accent2: #f472b6;
+  --color-caviar-bg: #070708;
+  --color-caviar-elev: #101014;
+  --color-caviar-pearl: #f4f5f7;
+  --color-caviar-silver: #c5cad3;
+  --color-caviar-platinum: #e8eaee;
+  --color-caviar-steel: #8b939e;
 
   --color-ever-neutral: #f7f5f2;
   --color-ever-ink: #1c1814;
@@ -19,6 +22,8 @@
 
   --font-headline: "Instrument Serif", Georgia, serif;
   --font-body: "DM Sans", "Segoe UI", system-ui, sans-serif;
+  --font-caviar-headline: "Cormorant Garamond", "Times New Roman", serif;
+  --font-caviar-body: "DM Sans", "Segoe UI", system-ui, sans-serif;
   --font-ever-headline: "Fraunces", Georgia, serif;
   --font-ever-body: "Outfit", system-ui, sans-serif;
   --font-auto-display: "Space Grotesk", system-ui, sans-serif;
